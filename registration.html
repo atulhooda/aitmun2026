@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration | AIT MUN 2026</title>
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+
+<body class="bg-background-dark text-slate-100 min-h-screen font-body">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3 group">
+                <img src="/logo.svg" alt="AIT MUN Logo" class="h-8 md:h-10 w-auto">
+                <span class="text-xl font-bold tracking-tight text-slate-100 font-sans">AIT MUN</span>
+            </a>
+            <div class="hidden lg:flex items-center gap-6">
+                <a href="/"
+                    class="text-[14px] font-medium text-slate-300 hover:text-primary transition-colors font-sans">Home</a>
+                <a href="/#about"
+                    class="text-[14px] font-medium text-slate-300 hover:text-primary transition-colors font-sans">About</a>
+                <a href="/committees.html"
+                    class="text-[14px] font-medium text-slate-300 hover:text-primary transition-colors font-sans">Committees</a>
+                <a href="/#sponsors"
+                    class="text-[14px] font-medium text-slate-300 hover:text-primary transition-colors font-sans">Sponsors</a>
+                <a href="/#gallery"
+                    class="text-[14px] font-medium text-slate-300 hover:text-primary transition-colors font-sans">Gallery</a>
+                <a href="/secretariat.html"
+                    class="text-[14px] font-medium text-slate-300 hover:text-primary transition-colors font-sans">Team</a>
+                <a href="/#faq"
+                    class="text-[14px] font-medium text-slate-300 hover:text-primary transition-colors font-sans">FAQ</a>
+                <button onclick="window.location.href='/registration.html'"
+                    class="ml-4 px-4 py-2 bg-primary text-background-dark rounded font-bold text-[13px] hover:bg-white transition-all font-sans">Register
+                    Now</button>
+            </div>
+            <button class="md:hidden text-primary" id="mobile-menu-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="pt-20 md:pt-32 pb-16 md:pb-24 px-6 max-w-4xl mx-auto">
+        <!-- Hero Section -->
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-5xl md:text-6xl font-display font-bold text-slate-100 mb-6 italic tracking-tight uppercase">
+                Delegate Registration</h2>
+            <div class="h-1 w-24 bg-primary mx-auto mb-8"></div>
+            <p class="text-slate-400 text-lg leading-relaxed font-sans max-w-2xl mx-auto">
+                Secure your seat at the most awaited Model United Nations conference of 2026. Join a community
+                of future leaders, diplomats, and change-makers.
+            </p>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 reveal shadow-2xl backdrop-blur-sm">
+            <form action="#" class="space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Name -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-primary/80">Full Name</label>
+                        <input type="text" placeholder="Your Name"
+                            class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-4 text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-sans">
+                    </div>
+                    <!-- Email -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-primary/80">Email Address</label>
+                        <input type="email" placeholder="example@domain.com"
+                            class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-4 text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-sans">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Institute -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-primary/80">Institution
+                            Name</label>
+                        <input type="text" placeholder="Your University / School"
+                            class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-4 text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-sans">
+                    </div>
+                    <!-- Experience -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-primary/80">MUN
+                            Experience</label>
+                        <select
+                            class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-4 text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none font-sans">
+                            <option>Beginner (0-2 MUNs)</option>
+                            <option>Intermediate (3-6 MUNs)</option>
+                            <option>Veteran (7+ MUNs)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Committee Preference -->
+                <div class="space-y-4">
+                    <label class="text-xs font-bold uppercase tracking-widest text-primary/80">Committee
+                        Preference</label>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <label
+                            class="flex items-center gap-3 p-4 border border-white/10 rounded-2xl cursor-pointer hover:bg-primary/5 transition-colors group">
+                            <input type="radio" name="committee" class="accent-primary">
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-primary">UNGA</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-3 p-4 border border-white/10 rounded-2xl cursor-pointer hover:bg-primary/5 transition-colors group">
+                            <input type="radio" name="committee" class="accent-primary">
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-primary">UNSC</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-3 p-4 border border-white/10 rounded-2xl cursor-pointer hover:bg-primary/5 transition-colors group">
+                            <input type="radio" name="committee" class="accent-primary">
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-primary">UNHRC</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Statement -->
+                <div class="space-y-2">
+                    <label class="text-xs font-bold uppercase tracking-widest text-primary/80">Position
+                        Statement</label>
+                    <textarea rows="4" placeholder="Briefly explain your interest in the selected committee."
+                        class="w-full bg-slate-900/50 border border-white/10 rounded-2xl px-4 py-4 text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none font-sans"></textarea>
+                </div>
+
+                <div class="pt-6">
+                    <button type="submit"
+                        class="bg-primary w-full py-5 rounded-2xl text-background-dark font-black tracking-[0.2em] uppercase text-xl shadow-lg hover:bg-white transition-all transform hover:-translate-y-1">
+                        Register Now
+                    </button>
+                    <p class="text-center text-slate-500 text-[10px] mt-6 uppercase tracking-widest font-sans">
+                        By submitting, you agree to the terms and conditions of AIT MUN 2026.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-black py-16 px-6 border-t border-white/5">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-4">
+                <img src="/logo.svg" alt="AIT MUN Logo" class="h-10 w-auto">
+                <span class="text-2xl font-bold tracking-tighter text-white font-sans">AIT MUN</span>
+            </div>
+            <a href="/" class="text-primary font-bold uppercase tracking-widest hover:underline text-xs">Back to
+                Home</a>
+        </div>
+    </footer>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>

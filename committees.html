@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Committees | AIT MUN 2026</title>
+    <link rel="stylesheet" href="./src/style.css">
+    <style>
+        /* Modern Simple UI Override derived from user's latest screenshots */
+        :root {
+            --ait-blue: #1b365d;
+            --ait-slate: #1e293b;
+            --ait-gold: #d4af37;
+        }
+
+        .committee-card {
+            @apply flex flex-col bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-2xl transition-all duration-300 h-full;
+        }
+
+        .blue-emblem-box {
+            background-color: #1b365d;
+            /* Dark Blue from Image 1 */
+            @apply flex items-center justify-center p-8 min-h-[220px] relative;
+        }
+
+        .card-content {
+            @apply p-6 flex flex-col items-start gap-4 flex-grow;
+        }
+
+        .card-title {
+            color: #1a365d;
+            @apply text-lg font-bold leading-tight;
+        }
+
+        .card-desc {
+            color: #475569;
+            @apply text-[14px] leading-relaxed font-sans;
+        }
+
+        .section-light {
+            background-color: #f8fafc;
+            @apply min-h-screen py-16 md:py-24;
+        }
+
+        .header-ait {
+            color: #1e293b;
+            @apply text-3xl md:text-5xl font-bold mb-4 font-sans text-center;
+        }
+
+        .header-ait-line {
+            @apply w-16 h-[2px] bg-[#1a365d] mx-auto mb-10;
+        }
+
+        .header-ait-desc {
+            @apply text-slate-500 max-w-3xl mx-auto text-center font-sans mb-16;
+        }
+
+        /* Nav overrides for light theme on this page */
+        .glass-nav-light {
+            @apply fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 py-4 transition-all duration-300;
+        }
+
+        .nav-link-ait {
+            @apply text-[14px] font-medium text-slate-600 hover:text-[#1a365d] transition-colors font-sans;
+        }
+
+        .btn-register-ait {
+            @apply px-5 py-2.5 bg-[#1a365d] text-white rounded-md font-bold text-[13px] hover:bg-slate-800 transition-all font-sans;
+        }
+
+        .logo-text-ait {
+            @apply text-xl font-bold tracking-tight text-[#1a365d] font-sans;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 antialiased font-body min-h-screen">
+    <!-- Navbar (White theme for Committees per image) -->
+    <nav class="glass-nav-light" id="main-nav">
+        <div class="max-w-7xl mx-auto px-6 h-12 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3 group">
+                <img src="/logo.svg" alt="AIT MUN Logo" class="h-8 md:h-9 w-auto">
+                <span class="logo-text-ait">AIT <span
+                        class="text-glow px-1 py-0 bg-transparent border-0 shadow-none">MUN</span></span>
+            </a>
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="/" class="nav-link-ait">Home</a>
+                <a href="#about" class="nav-link-ait">About</a>
+                <a href="/committees.html" class="nav-link-ait font-bold text-[#1a365d]">Committees</a>
+                <a href="#sponsors" class="nav-link-ait">Sponsors</a>
+                <a href="#gallery" class="nav-link-ait">Gallery</a>
+                <a href="/secretariat.html" class="nav-link-ait">Team</a>
+                <a href="#faq" class="nav-link-ait">FAQ</a>
+                <button onclick="window.location.href='/registration.html'" class="btn-register-ait">Register
+                    Now</button>
+            </div>
+            <button class="md:hidden text-[#1a365d]" id="mobile-menu-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="section-light">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header from Image 2 -->
+            <div class="reveal">
+                <h2 class="header-ait">Our Committees</h2>
+                <div class="header-ait-line"></div>
+                <p class="header-ait-desc">
+                    Delve into our six specialized committees, each meticulously designed to dissect pivotal facets of
+                    World War II and their enduring influence on contemporary global governance and international
+                    relations.
+                </p>
+            </div>
+
+            <!-- Committee Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- UN Security Council -->
+                <article class="committee-card reveal">
+                    <div class="blue-emblem-box">
+                        <img src="/unsc.png" alt="UNSC Emblem" class="w-40 h-40 object-contain">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">United Nations Security Council</h3>
+                        <p class="card-desc">Addressing nuclear proliferation in the Middle East, focusing on Iran's
+                            nuclear program and regional security dynamics.</p>
+                    </div>
+                </article>
+
+                <!-- UN Human Rights Council -->
+                <article class="committee-card reveal">
+                    <div class="blue-emblem-box">
+                        <img src="/unhrc.png" alt="UNHRC Emblem" class="w-40 h-40 object-contain">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">United Nations Human Rights Council</h3>
+                        <p class="card-desc">Human rights situation in Israeli settlements in Occupied Palestinian
+                            Territory, including East Jerusalem, and in the occupied Syrian Golan.</p>
+                    </div>
+                </article>
+
+                <!-- UNODC -->
+                <article class="committee-card reveal">
+                    <div class="blue-emblem-box">
+                        <img src="/unodc.png" alt="UNODC Emblem" class="w-40 h-40 object-contain">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">United Nations Office on Drugs and Crime</h3>
+                        <p class="card-desc">Tackling the proliferation of synthetic opioid trafficking, with an
+                            emphasis on fentanyl production in Mexico.</p>
+                    </div>
+                </article>
+
+                <!-- All India Political Parties Meet -->
+                <article class="committee-card reveal">
+                    <div class="blue-emblem-box">
+                        <img src="/aippm.png" alt="AIPPM Emblem" class="w-40 h-40 object-contain">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">All India Political Parties Meet</h3>
+                        <p class="card-desc">Censorship laws in India, with a special focus on digital content
+                            regulation under the IT Act, 2000, and Article 19 of the Constitution.</p>
+                    </div>
+                </article>
+
+                <!-- International Press -->
+                <article class="committee-card reveal">
+                    <div class="blue-emblem-box">
+                        <img src="/ip.png" alt="IP Emblem" class="w-40 h-40 object-contain">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">International Press</h3>
+                        <p class="card-desc">Be on the frontlines of journalism as history takes shape.</p>
+                    </div>
+                </article>
+
+                <!-- UNCSW -->
+                <article class="committee-card reveal">
+                    <div class="blue-emblem-box">
+                        <img src="/uncsw.png" alt="UNCSW Emblem" class="w-40 h-40 object-contain">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">UN Commission on Status of Women</h3>
+                        <p class="card-desc">Advancing Global Gender Equality: Addressing State Regulation of Women's
+                            Attire and Mitigating the Escalation of Intimate Partner Violence in the world.</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Dedicated Modern Footer -->
+    <footer class="bg-slate-900 pt-20 pb-10 px-6 text-slate-100 border-t border-slate-800 relative z-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand & Contact Persons -->
+                <div class="reveal">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="/logo.svg" alt="AIT MUN Logo" class="h-10 w-auto">
+                        <span class="text-2xl font-bold tracking-tight font-display">AIT <span
+                                class="text-primary italic">MUN</span></span>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-primary text-[11px] font-bold uppercase tracking-[0.2em]">For Any Queries
+                            Contact:</p>
+                        <div class="text-slate-400 text-sm space-y-1">
+                            <p>Sohila Kaur: <span class="text-slate-100">+91 9999078811</span></p>
+                            <p>Siddhant Tiwari: <span class="text-slate-100">+91 9863613065</span></p>
+                        </div>
+                        <div class="flex gap-4 pt-2">
+                            <a href="#" class="text-primary hover:text-white transition-colors">
+                                <span class="material-symbols-outlined">public</span>
+                            </a>
+                            <a href="#" class="text-primary hover:text-white transition-colors">
+                                <span class="material-symbols-outlined">groups</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="reveal delay-100">
+                    <h4 class="text-lg font-bold mb-6 font-display text-primary">Quick Links</h4>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="/index.html#about" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="/committees.html"
+                                class="hover:text-primary transition-colors font-bold">Committees</a></li>
+                        <li><a href="/secretariat.html" class="hover:text-primary transition-colors">Team</a></li>
+                        <li><a href="/index.html#faq" class="hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Committees -->
+                <div class="reveal delay-200">
+                    <h4 class="text-lg font-bold mb-6 font-display text-primary">Committees</h4>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNSC</a></li>
+                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNHRC</a></li>
+                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNODC</a></li>
+                        <li><a href="/committees.html" class="hover:text-primary transition-colors">AIPPM</a></li>
+                        <li><a href="/committees.html" class="hover:text-primary transition-colors">IP</a></li>
+                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNCSW</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Us & Map -->
+                <div class="reveal delay-300">
+                    <h4 class="text-lg font-bold mb-6 font-display text-primary">Contact Us</h4>
+                    <div class="space-y-4">
+                        <a href="mailto:aitpunemun@gmail.com"
+                            class="flex items-center gap-2 text-slate-400 hover:text-primary text-sm transition-colors">
+                            <span class="material-symbols-outlined text-sm">mail</span>
+                            aitpunemun@gmail.com
+                        </a>
+                        <div class="text-slate-400 text-sm leading-relaxed">
+                            <p class="font-bold text-slate-100">Army Institute of Technology</p>
+                            <p>Dighi Hills, Pune</p>
+                            <p>Maharashtra - 411015</p>
+                        </div>
+                        <div class="rounded-lg overflow-hidden border border-slate-800 mt-4 h-32 relative group">
+                            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80"
+                                alt="Location Map"
+                                class="w-full h-full object-cover grayscale opacity-30 group-hover:opacity-60 transition-all duration-700">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <a href="https://maps.google.com" target="_blank"
+                                    class="px-4 py-2 bg-primary text-slate-900 rounded-md text-[10px] uppercase font-bold tracking-widest hover:bg-white transition-all shadow-lg">Open
+                                    in Maps</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-10 border-t border-slate-800 text-center">
+                <p class="text-slate-500 text-[10px] uppercase tracking-[0.4em]">
+                    © 2026 AIT Model United Nations. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>

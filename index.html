@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIT Model United Nations 2026 | Global Leadership Summit</title>
+    <meta name="description"
+        content="Join the most prestigious diplomatic simulation. Forge alliances, debate global issues, and lead the future at AIT MUN 2026.">
+    <link rel="stylesheet" href="./src/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body class="bg-black text-slate-100 antialiased font-body overflow-x-hidden">
+
+    <!-- Ring-loader overlay -->
+    <div id="ring-loader"
+        class="fixed inset-0 z-[9999] bg-black flex items-center justify-center transition-opacity duration-1000 opacity-100">
+        <div id="ring-mount" class="absolute inset-0 w-full h-full"></div>
+        <div class="r3d-text-wrap">
+            <span class="r3d-verse">AIT MUN 2026</span>
+            <span class="r3d-subtitle">Initializing Leadership</span>
+            <div class="r3d-dots">
+                <div class="r3d-dot"></div>
+                <div class="r3d-dot"></div>
+                <div class="r3d-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scrollytelling Background -->
+    <canvas id="scrolly-bg" class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none object-cover"></canvas>
+
+    <div class="relative z-10">
+        <!-- Navigation -->
+        <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="main-nav">
+            <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+                <a href="/" class="flex items-center gap-3 group">
+                    <img src="/logo.svg" alt="AIT MUN Logo" class="h-8 md:h-10 w-auto">
+                    <span class="text-xl font-bold tracking-tight text-slate-100 font-sans">AIT MUN</span>
+                </a>
+
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="/" class="nav-link-modern">Home</a>
+                    <a href="#about" class="nav-link-modern">About</a>
+                    <a href="#committees" class="nav-link-modern">Committees</a>
+                    <a href="#gallery" class="nav-link-modern">Gallery</a>
+                    <a href="#team" class="nav-link-modern">Team</a>
+                    <a href="#faq" class="nav-link-modern">FAQ</a>
+                    <button onclick="window.location.href='/registration.html'"
+                        class="ml-4 px-4 py-2 bg-primary text-background-dark rounded font-bold text-[13px] hover:bg-white transition-all font-sans">Register
+                        Now</button>
+                </div>
+
+                <button class="lg:hidden text-primary" id="mobile-menu-btn">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-menu"
+                class="fixed inset-0 bg-black z-[100] flex flex-col items-center justify-center gap-8 translate-x-full transition-transform duration-500 lg:hidden">
+                <button class="absolute top-6 right-6 text-primary" id="close-menu-btn">
+                    <span class="material-symbols-outlined text-4xl">close</span>
+                </button>
+                <a href="/" class="text-2xl font-bold text-primary uppercase tracking-widest mobile-link">Home</a>
+                <a href="#about" class="text-2xl font-bold text-primary uppercase tracking-widest mobile-link">About</a>
+                <a href="#committees"
+                    class="text-2xl font-bold text-primary uppercase tracking-widest mobile-link">Committees</a>
+                <a href="#gallery"
+                    class="text-2xl font-bold text-primary uppercase tracking-widest mobile-link">Gallery</a>
+                <a href="#team" class="text-2xl font-bold text-primary uppercase tracking-widest mobile-link">Team</a>
+                <a href="#faq" class="text-2xl font-bold text-primary uppercase tracking-widest mobile-link">FAQ</a>
+                <a href="/registration.html"
+                    class="gold-shimmer px-10 py-4 rounded text-background-dark font-black tracking-widest uppercase text-xl mobile-link">Register
+                    Now</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-transparent">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-black/50 z-10"></div>
+            </div>
+
+            <div class="relative z-20 text-center px-4 max-w-5xl">
+                <h1
+                    class="text-4xl md:text-6xl lg:text-8xl font-display font-black leading-[0.9] tracking-tighter mb-8 uppercase gradient-text-animated">
+                    AIT MODEL <br />
+                    <span class="italic text-3xl md:text-5xl lg:text-7xl">UNITED NATIONS</span>
+                </h1>
+
+
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                    <a href="/registration.html" class="btn-53">
+                        <span class="original">Register Now</span>
+                        <span class="letters">
+                            <span>R</span><span>e</span><span>g</span><span>i</span><span>s</span><span>t</span><span>e</span><span>r</span><span>&nbsp;</span><span>N</span><span>o</span><span>w</span>
+                        </span>
+                    </a>
+                    <a href="#about" class="discover-button">
+                        <span class="discover-text">Discover</span>
+                        <span class="discover-svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="20" viewBox="0 0 38 15"
+                                fill="none">
+                                <path fill="white"
+                                    d="M10 7.519l-.939-.344h0l.939.344zm14.386-1.205l-.981-.192.981.192zm1.276 5.509l.537.843.148-.094.107-.139-.792-.611zm4.819-4.304l-.385-.923h0l.385.923zm7.227.707a1 1 0 0 0 0-1.414L31.343.448a1 1 0 0 0-1.414 0 1 1 0 0 0 0 1.414l5.657 5.657-5.657 5.657a1 1 0 0 0 1.414 1.414l6.364-6.364zM1 7.519l.554.833.029-.019.094-.061.361-.23 1.277-.77c1.054-.609 2.397-1.32 3.629-1.787.617-.234 1.17-.392 1.623-.455.477-.066.707-.008.788.034.025.013.031.021.039.034a.56.56 0 0 1 .058.235c.029.327-.047.906-.39 1.842l1.878.689c.383-1.044.571-1.949.505-2.705-.072-.815-.45-1.493-1.16-1.865-.627-.329-1.358-.332-1.993-.244-.659.092-1.367.305-2.056.566-1.381.523-2.833 1.297-3.921 1.925l-1.341.808-.385.245-.104.068-.028.018c-.011.007-.011.007.543.84zm8.061-.344c-.198.54-.328 1.038-.36 1.484-.032.441.024.94.325 1.364.319.45.786.64 1.21.697.403.054.824-.001 1.21-.09.775-.179 1.694-.566 2.633-1.014l3.023-1.554c2.115-1.122 4.107-2.168 5.476-2.524.329-.086.573-.117.742-.115s.195.038.161.014c-.15-.105.085-.139-.076.685l1.963.384c.192-.98.152-2.083-.74-2.707-.405-.283-.868-.37-1.28-.376s-.849.069-1.274.179c-1.65.43-3.888 1.621-5.909 2.693l-2.948 1.517c-.92.439-1.673.743-2.221.87-.276.064-.429.065-.492.057-.043-.006.066.003.155.127.07.099.024.131.038-.063.014-.187.078-.49.243-.94l-1.878-.689zm14.343-1.053c-.361 1.844-.474 3.185-.413 4.161.059.95.294 1.72.811 2.215.567.544 1.242.546 1.664.459a2.34 2.34 0 0 0 .502-.167l.15-.076.049-.028.018-.011c.013-.008.013-.008-.524-.852l-.536-.844.019-.012c-.038.018-.064.027-.084.032-.037.008.053-.013.125.056.021.02-.151-.135-.198-.895-.046-.734.034-1.887.38-3.652l-1.963-.384zm2.257 5.701l.791.611.024-.031.08-.101.311-.377 1.093-1.213c.922-.954 2.005-1.894 2.904-2.27l-.771-1.846c-1.31.547-2.637 1.758-3.572 2.725l-1.184 1.314-.341.414-.093.117-.025.032c-.01.013-.01.013.781.624zm5.204-3.381c.989-.413 1.791-.42 2.697-.307.871.108 2.083.385 3.437.385v-2c-1.197 0-2.041-.226-3.19-.369-1.114-.139-2.297-.146-3.715.447l.771 1.846z">
+                                </path>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+                <span class="material-symbols-outlined text-primary text-3xl">expand_more</span>
+            </div>
+        </header>
+
+
+        <section id="about"
+            class="py-16 md:py-24 px-6 scroll-mt-20 reveal-scroll transition-all duration-300 relative overflow-hidden">
+            <div class="video-background-container">
+                <video autoplay muted loop playsinline>
+                    <source src="/assets/12.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="max-w-5xl mx-auto relative z-10">
+                <!-- Centered Header -->
+                <div class="text-center mb-16 reveal">
+                    <h2
+                        class="inline-block px-8 py-4 bg-black/60 backdrop-blur-md rounded-2xl text-4xl md:text-5xl font-display font-bold text-slate-100 mb-4 border border-white/10">
+                        About AIT MUN</h2>
+                    <div class="w-16 h-[3px] bg-primary mx-auto mt-6"></div>
+                </div>
+
+                <!-- Description Paragraphs with ScrollReveal effect -->
+                <div class="text-center max-w-3xl mx-auto space-y-12 mb-20 px-4">
+                    <div
+                        class="bg-black/60 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl reveal">
+                        <p class="scroll-reveal-text text-slate-200 text-lg md:text-xl leading-relaxed mb-10">
+                            AIT Model United Nations (AIT MUN) is a distinguished platform where visionary minds
+                            converge to
+                            engage in riveting debates, master the art of diplomacy, and craft ingenious solutions to
+                            global
+                            challenges. This year, we unravel the profound impact of seemingly small things on
+                            contemporary
+                            international affairs.
+                        </p>
+                        <p
+                            class="scroll-reveal-text text-slate-300 text-lg md:text-xl leading-relaxed italic border-t border-white/5 pt-8">
+                            Immerse yourself in a world of eloquence, strategy, and diplomacy—where ideas shape
+                            destinies,
+                            perspectives evolve, and leadership is redefined. Join us in this transformative journey and
+                            leave your mark on the future of global discourse.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Three Numbered Feature Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 01 -->
+                    <div
+                        class="group p-8 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 text-center reveal">
+                        <div
+                            class="w-14 h-14 rounded-full border-2 border-primary flex items-center justify-center mx-auto mb-6">
+                            <span class="text-primary text-lg font-bold font-display">01</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100 mb-4 font-display">Master Diplomacy</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Sharpen your negotiation, public speaking, and
+                            critical thinking skills—key traits of future leaders.</p>
+                    </div>
+
+                    <!-- Card 02 -->
+                    <div
+                        class="group p-8 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 text-center reveal delay-100">
+                        <div
+                            class="w-14 h-14 rounded-full border-2 border-primary flex items-center justify-center mx-auto mb-6">
+                            <span class="text-primary text-lg font-bold font-display">02</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100 mb-4 font-display">Explore Geopolitical Arena</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Navigate international relations, negotiate
+                            policies, and address global challenges, mirroring real-world diplomatic processes and
+                            geopolitics.</p>
+                    </div>
+
+                    <!-- Card 03 -->
+                    <div
+                        class="group p-8 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10 hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 text-center reveal delay-200">
+                        <div
+                            class="w-14 h-14 rounded-full border-2 border-primary flex items-center justify-center mx-auto mb-6">
+                            <span class="text-primary text-lg font-bold font-display">03</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100 mb-4 font-display">Build Connections</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Network with passionate individuals, exchange
+                            ideas, and form meaningful, long-lasting relationships.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Committees Grid -->
+        <section id="committees"
+            class="py-16 md:py-24 px-6 scroll-mt-20 reveal-scroll transition-opacity duration-300 relative overflow-hidden">
+            <div class="video-background-container">
+                <video autoplay muted loop playsinline>
+                    <source src="/assets/112.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="flex items-end justify-between mb-16 reveal">
+                    <div>
+                        <h2 class="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-2">Deliberations</h2>
+                        <h3 class="text-4xl md:text-5xl font-display font-bold text-slate-100 italic">
+                            <span class="text-glow">The</span> <span class="text-glow">Committees</span>
+                        </h3>
+                    </div>
+                    <div class="hidden md:block h-px flex-1 bg-primary/20 mx-10 mb-4"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-24 gap-x-8 mt-20">
+                    <!-- UNSC -->
+                    <div class="committee-card reveal">
+                        <div class="slide slide1">
+                            <div class="icon-box">
+                                <img src="/council-of-elrond-logo.png" alt="UNSC">
+                            </div>
+                        </div>
+                        <div class="slide slide2">
+                            <div class="content">
+                                <h4>UNSC</h4>
+                                <p>Addressing nuclear proliferation in the Middle East, focusing on Iran's nuclear program and regional security dynamics.</p>
+                                <a href="/committees.html">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UNHRC -->
+                    <div class="committee-card reveal delay-100">
+                        <div class="slide slide1">
+                            <div class="icon-box">
+                                <img src="/cc.png" alt="UNHRC">
+                            </div>
+                        </div>
+                        <div class="slide slide2">
+                            <div class="content">
+                                <h4>UNHRC</h4>
+                                <p>Human rights situation in Israeli settlements in Occupied Palestinian Territory, including East Jerusalem.</p>
+                                <a href="/committees.html">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UNODC -->
+                    <div class="committee-card reveal delay-200">
+                        <div class="slide slide1">
+                            <div class="icon-box">
+                                <img src="/council-of-elrond-logo.png" alt="UNODC">
+                            </div>
+                        </div>
+                        <div class="slide slide2">
+                            <div class="content">
+                                <h4>UNODC</h4>
+                                <p>Tackling the proliferation of synthetic opioid trafficking, with an emphasis on production in Mexico.</p>
+                                <a href="/committees.html">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AIPPM -->
+                    <div class="committee-card reveal">
+                        <div class="slide slide1">
+                            <div class="icon-box">
+                                <img src="/fellowship-accord-logo.png" alt="AIPPM">
+                            </div>
+                        </div>
+                        <div class="slide slide2">
+                            <div class="content">
+                                <h4>AIPPM</h4>
+                                <p>Censorship laws in India, digital content regulation under the IT Act, 2000, and Article 19.</p>
+                                <a href="/committees.html">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IP -->
+                    <div class="committee-card reveal delay-100">
+                        <div class="slide slide1">
+                            <div class="icon-box">
+                                <img src="/international-press-logo.png" alt="IP">
+                            </div>
+                        </div>
+                        <div class="slide slide2">
+                            <div class="content">
+                                <h4>IP</h4>
+                                <p>Be on the frontlines of journalism as history takes shape. Capture the essence of deliberations.</p>
+                                <a href="/committees.html">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UNCSW -->
+                    <div class="committee-card reveal delay-200">
+                        <div class="slide slide1">
+                            <div class="icon-box">
+                                <img src="/shire-assembly-logo.png" alt="UNCSW">
+                            </div>
+                        </div>
+                        <div class="slide slide2">
+                            <div class="content">
+                                <h4>UNCSW</h4>
+                                <p>Advancing Global Gender Equality and mitigating the escalation of Intimate Partner Violence.</p>
+                                <a href="/committees.html">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Photo Collage Gallery Section -->
+    <section id="gallery" class="py-16 md:py-20 px-6 scroll-mt-20 relative overflow-hidden">
+        <div class="video-background-container">
+            <video autoplay muted loop playsinline>
+                <source src="/assets/9.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-2">Memories</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-bold text-slate-100 italic">
+                    <span class="text-glow">Gallery</span>
+                </h3>
+            </div>
+
+            <div class="collage-grid max-w-7xl mx-auto">
+                <!-- Row 1-2 -->
+                <div class="collage-item collage-tall reveal">
+                    <img src="/col/g1 (1).png" alt="AIT MUN Memory 1" loading="lazy">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item reveal">
+                    <img src="/col/g2 (1).png" alt="AIT MUN Memory 2" loading="lazy">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item reveal">
+                    <img src="/col/g3 (1).png" alt="AIT MUN Memory 3" loading="lazy">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item reveal">
+                    <img src="/col/janu (1).jpeg" alt="AIT MUN Memory" loading="lazy">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item collage-wide reveal">
+                    <img src="/col/g4 (1).png" alt="AIT MUN Memory 4" loading="lazy">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item reveal">
+                    <img src="/col/g6 (1).png" alt="AIT MUN Memory 6" loading="lazy">
+                    <div class="collage-overlay"></div>
+                </div>
+                <!-- Row 3-4 -->
+                <div class="collage-item reveal">
+                    <img src="/col/g5 (1).png" alt="AIT MUN Memory 5" loading="lazy">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item collage-wide reveal">
+                    <img src="/col/g8 (1).png" alt="AIT MUN Memory 8" loading="lazy">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item reveal">
+                    <img src="/col/g7 (1).png" alt="AIT MUN Memory 7" loading="lazy">
+                    <div class="collage-overlay"></div>
+                </div>
+
+            </div> <!-- End of max-w-7xl mx-auto -->
+        </div> <!-- End of z-10 for gallery contents -->
+
+        <!-- Lightbox -->
+        <div id="gallery-lightbox" class="lightbox-overlay" onclick="this.classList.remove('active')">
+            <img id="lightbox-img" src="" alt="Enlarged photo">
+            <button class="lightbox-close"
+                onclick="document.getElementById('gallery-lightbox').classList.remove('active')">&times;</button>
+        </div>
+    </section>
+
+    <!-- Scrollytelling Spacing -->
+    <div class="h-[30vh]"></div>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors"
+        class="py-16 md:py-24 px-6 reveal-scroll transition-all duration-300 relative overflow-hidden">
+        <div class="video-background-container">
+            <video autoplay muted loop playsinline>
+                <source src="/assets/8.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-4">Patrons</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-bold text-slate-100 italic">
+                    Our <span class="text-glow">Sponsors</span>
+                </h3>
+                <p class="text-slate-400 mt-6 max-w-2xl mx-auto">
+                    AIT MUN 2026 is made possible by the generous support of our partners who believe in the power of
+                    diplomacy and youth leadership.
+                </p>
+            </div>
+
+            <!-- Tiered Sponsors Grid -->
+            <div class="space-y-16">
+                <!-- Gold Sponsors -->
+                <div class="reveal">
+                    <div class="flex items-center gap-6 mb-8">
+                        <span class="text-primary font-bold tracking-widest uppercase text-xs">Gold Tier</span>
+                        <div class="h-px flex-1 bg-gradient-to-r from-primary/30 to-transparent"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="aspect-video bg-white rounded-xl p-8 flex items-center justify-center hover:bg-slate-100 transition-all group overflow-hidden shadow-inner">
+                            <img src="/as/budhani.png" alt="Budhani Bros"
+                                class="max-h-[80px] md:max-h-[100px] w-auto object-contain">
+                        </div>
+                        <div
+                            class="aspect-video bg-white rounded-xl p-8 flex items-center justify-center hover:bg-slate-100 transition-all group overflow-hidden shadow-inner">
+                            <img src="/as/accops.png" alt="Accops"
+                                class="max-h-[80px] md:max-h-[100px] w-auto object-contain">
+                        </div>
+                        <div
+                            class="aspect-video bg-white rounded-xl p-8 flex items-center justify-center hover:bg-slate-100 transition-all group overflow-hidden shadow-inner">
+                            <img src="/as/max.png" alt="Max Protein"
+                                class="max-h-[80px] md:max-h-[100px] w-auto object-contain">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Contributions Section -->
+    <section class="py-16 md:py-20 px-6 scroll-mt-20 text-slate-100 relative overflow-hidden">
+        <div class="video-background-container">
+            <video autoplay muted loop playsinline>
+                <source src="/assets/13.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-4">Gratitude</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-bold text-slate-100 mb-4 italic leading-tight">
+                    Some Generous <span class="text-glow">Contributions</span>
+                </h3>
+                <div class="w-16 h-[3px] bg-primary mx-auto mt-4"></div>
+            </div>
+
+            <!-- Testimonial Carousel -->
+            <div class="relative" id="contrib-carousel">
+                <div class="overflow-hidden">
+                    <div class="contrib-track flex transition-transform duration-500 ease-in-out" id="contrib-track">
+                        <!-- Card 1 -->
+                        <div class="contrib-card w-full flex-shrink-0 px-4">
+                            <div
+                                class="bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 relative shadow-2xl">
+                                <div class="absolute top-6 left-8 text-primary text-4xl opacity-30 font-display">&#8220;
+                                </div>
+                                <div class="flex-shrink-0">
+                                    <div
+                                        class="w-28 h-28 rounded-full border-2 border-primary overflow-hidden bg-primary/10">
+                                        <img src="/col/janu (1).jpeg" alt="Raveen Janu"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <div class="text-center md:text-left">
+                                    <p class="text-slate-300 text-lg italic leading-relaxed mb-6">
+                                        "Raveen Janu Sir, an alumnus of 2006 batch made a generous contribution of INR
+                                        35K towards organization of AIT MUN 2025"
+                                    </p>
+                                    <h4 class="text-slate-100 font-bold text-xl font-display">Raveen Janu</h4>
+                                    <p class="text-primary text-sm tracking-wide">Goodwill Sponsor AIT MUN 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dots -->
+                <div class="flex justify-center gap-3 mt-8" id="contrib-dots">
+                    <button class="w-3 h-3 rounded-full bg-primary transition-all" data-slide="0"></button>
+                </div>
+
+                <!-- Nav Buttons -->
+                <div class="flex justify-center gap-4 mt-6">
+                    <button onclick="moveContribCarousel(-1)"
+                        class="px-6 py-2 rounded-full border border-slate-500/50 text-slate-300 text-sm font-bold uppercase tracking-widest hover:border-primary hover:text-primary transition-all">Previous</button>
+                    <button onclick="moveContribCarousel(1)"
+                        class="px-6 py-2 rounded-full bg-primary text-background-dark text-sm font-bold uppercase tracking-widest hover:bg-white transition-all">Next</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 md:py-20 px-6 scroll-mt-20 relative overflow-hidden text-slate-100">
+        <div class="video-background-container">
+            <video autoplay muted loop playsinline>
+                <source src="/assets/11.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div
+                class="text-center mb-16 reveal bg-black/50 backdrop-blur-md rounded-2xl px-6 py-8 inline-block w-full">
+                <h2 class="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-4">Inquiries</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-bold text-slate-100 mb-8 italic leading-tight">
+                    Frequently <span class="text-glow">Asked Questions</span>
+                </h3>
+                <p class="text-slate-400 font-sans max-w-2xl mx-auto">Find answers to common questions about AIT MUN.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="gold-border rounded-xl bg-black/50 backdrop-blur-md overflow-hidden reveal">
+                    <button class="w-full p-6 text-left flex justify-between items-center group"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+                        <span
+                            class="text-lg font-bold text-slate-100 group-hover:text-primary transition-colors font-display">
+                            What is Model United Nations?
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-400 font-sans hidden">
+                        Model United Nations (MUN) is an educational simulation of the United Nations where students
+                        learn about diplomacy, international relations, and the UN.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="gold-border rounded-xl bg-black/50 backdrop-blur-md overflow-hidden reveal">
+                    <button class="w-full p-6 text-left flex justify-between items-center group"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+                        <span
+                            class="text-lg font-bold text-slate-100 group-hover:text-primary transition-colors font-display">
+                            Who can participate in AIT MUN?
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-400 font-sans hidden">
+                        Students from high schools and universities across the nation interested in international
+                        relations and diplomacy are welcome to apply.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="gold-border rounded-xl bg-black/50 backdrop-blur-md overflow-hidden reveal">
+                    <button class="w-full p-6 text-left flex justify-between items-center group"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+                        <span
+                            class="text-lg font-bold text-slate-100 group-hover:text-primary transition-colors font-display">
+                            How do I register for AIT MUN?
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-400 font-sans hidden">
+                        You can register by clicking the "Register Now" button in the navigation bar or on the home page
+                        and filling out the application form.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="gold-border rounded-xl bg-black/50 backdrop-blur-md overflow-hidden reveal">
+                    <button class="w-full p-6 text-left flex justify-between items-center group"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+                        <span
+                            class="text-lg font-bold text-slate-100 group-hover:text-primary transition-colors font-display">
+                            What should I prepare before the conference?
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-400 font-sans hidden">
+                        Delegates should research their assigned country's policies, study the committee background
+                        guides, and prepare position papers and speaking notes.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="gold-border rounded-xl bg-black/50 backdrop-blur-md overflow-hidden reveal">
+                    <button class="w-full p-6 text-left flex justify-between items-center group"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+                        <span
+                            class="text-lg font-bold text-slate-100 group-hover:text-primary transition-colors font-display">
+                            Will accommodation be provided?
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-400 font-sans hidden">
+                        Yes, we provide accommodation for outstation delegates. Details regarding venues and logistics
+                        will be shared with registered delegates via email.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="gold-border rounded-xl bg-black/50 backdrop-blur-md overflow-hidden reveal">
+                    <button class="w-full p-6 text-left flex justify-between items-center group"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+                        <span
+                            class="text-lg font-bold text-slate-100 group-hover:text-primary transition-colors font-display">
+                            How can my organization sponsor AIT MUN?
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-400 font-sans hidden">
+                        Organizations interested in sponsorship can reach out to us at <a
+                            href="mailto:aitpunemun@gmail.com" class="text-primary underline">aitpunemun@gmail.com</a>
+                        for partnership opportunities.
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="mt-20 text-center reveal bg-black/50 backdrop-blur-md rounded-2xl px-6 py-6 inline-block w-full">
+                <p class="text-slate-500 font-sans mb-2">Still have questions? Feel free to reach out to us.</p>
+                <a href="mailto:aitpunemun@gmail.com"
+                    class="text-primary font-bold text-xl hover:text-white transition-colors font-sans">aitpunemun@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated Modern Footer -->
+    <footer class="bg-background-dark pt-20 pb-10 px-6 text-slate-100 border-t border-primary/20 relative z-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand & Contact Persons -->
+                <div class="reveal">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="/logo.svg" alt="AIT MUN Logo" class="h-10 w-auto">
+                        <span class="text-2xl font-bold tracking-tight font-display">AIT <span
+                                class="text-primary italic">MUN</span></span>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-primary text-[11px] font-bold uppercase tracking-[0.2em]">For Any Queries
+                            Contact:</p>
+                        <div class="text-slate-400 text-sm space-y-1">
+                            <p>Sohila Kaur: <span class="text-slate-100">+91 9999078811</span></p>
+                            <p>Siddhant Tiwari: <span class="text-slate-100">+91 9863613065</span></p>
+                        </div>
+                        <ul class="social-icons-footer">
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-facebook-f icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-twitter icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-linkedin-in icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-instagram icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="reveal delay-100">
+                    <h4 class="text-lg font-bold mb-6 font-display text-primary">Quick Links</h4>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="/committees.html" class="hover:text-primary transition-colors">Committees</a></li>
+                        <li><a href="#team" class="hover:text-primary transition-colors">Team</a></li>
+                        <li><a href="#faq" class="hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Committees -->
+                <div class="reveal delay-200">
+                    <h4 class="text-lg font-bold mb-6 font-display text-primary">Committees</h4>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNSC</a></li>
+                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNHRC</a></li>
+                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNODC</a></li>
+                        <li><a href="/committees.html" class="hover:text-primary transition-colors">AIPPM</a></li>
+                        <li><a href="/committees.html" class="hover:text-primary transition-colors">IP</a></li>
+                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNCSW</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Us & Map -->
+                <div class="reveal delay-300">
+                    <h4 class="text-lg font-bold mb-6 font-display text-primary">Contact Us</h4>
+                    <div class="space-y-4">
+                        <a href="mailto:aitpunemun@gmail.com"
+                            class="flex items-center gap-2 text-slate-400 hover:text-primary text-sm transition-colors">
+                            <span class="material-symbols-outlined text-sm">mail</span>
+                            aitpunemun@gmail.com
+                        </a>
+                        <div class="text-slate-400 text-sm leading-relaxed">
+                            <p class="font-bold text-slate-100">Army Institute of Technology</p>
+                            <p>Dighi Hills, Pune</p>
+                            <p>Maharashtra - 411015</p>
+                        </div>
+                        <div class="rounded-lg overflow-hidden border border-primary/20 mt-4 h-32 relative group">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.0!2d73.8725116!3d18.6069315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c70090000001%3A0x160a20f3d0273495!2sArmy%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1709900000000!5m2!1sen!2sin"
+                                class="w-full h-full border-0 grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <a href="https://www.google.com/maps/place/Army+Institute+of+Technology/@18.6069315,73.8725116,17z"
+                                    target="_blank"
+                                    class="pointer-events-auto px-4 py-2 bg-primary text-background-dark rounded-md text-[10px] uppercase font-bold tracking-widest hover:bg-white transition-all shadow-lg">Open
+                                    in Maps</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-10 border-t border-primary/10 text-center">
+                <p class="text-slate-500 text-[10px] uppercase tracking-[0.4em]">
+                    © 2026 AIT Model United Nations. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    </div> <!-- Close scrollytelling content container -->
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
