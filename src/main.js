@@ -358,6 +358,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// --- LAZY-LOAD BACKGROUND VIDEOS ---
+// Only play videos when they are actually visible on screen to save CPU/Memory
+const initLazyVideos = () => {
+    const lazyVideos = document.querySelectorAll('.lazy-video');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                // Video is visible, start playback
+                if (video.paused) {
+                    video.play().catch(err => console.log('Auto-play prevented:', err));
+                }
+            } else {
+                // Video is offscreen, pause it
+                if (!video.paused) {
+                    video.pause();
+                }
+            }
+        });
+    }, {
+        rootMargin: '100px 0px 100px 0px' // Start loading/playing slightly before it entering view
+    });
+
+    lazyVideos.forEach(video => {
+        observer.observe(video);
+    });
+};
+
+document.addEventListener('DOMContentLoaded', initLazyVideos);
 // ===== CONTRIBUTIONS CAROUSEL =====
 let currentContribSlide = 0;
 const contribTrack = document.getElementById('contrib-track');
