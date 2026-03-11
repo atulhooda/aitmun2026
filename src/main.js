@@ -15,17 +15,42 @@ window.addEventListener('beforeunload', () => {
 // --- INITIALIZE RING LOADER ---
 const hideRingLoader = initRingLoader('ring-mount', 'ring-loader');
 
-// Hide loader when page is ready, but add a safety timeout
-const handleLoad = () => {
-    if (hideRingLoader) hideRingLoader();
-};
+// Hide loader only after all main content, images, and lazy videos are loaded
+function waitForAllContentLoaded() {
+    const images = Array.from(document.images);
+    const videos = Array.from(document.querySelectorAll('.lazy-video'));
+    const promises = [];
+
+    // Wait for all images
+    images.forEach(img => {
+        if (img.complete) return;
+        promises.push(new Promise(resolve => {
+            img.addEventListener('load', resolve);
+            img.addEventListener('error', resolve);
+        }));
+    });
+
+    // Wait for all lazy videos
+    videos.forEach(video => {
+        if (video.readyState >= 2) return;
+        promises.push(new Promise(resolve => {
+            video.addEventListener('loadeddata', resolve);
+            video.addEventListener('error', resolve);
+        }));
+    });
+
+    // Fallback: always resolve after 10s
+    promises.push(new Promise(resolve => setTimeout(resolve, 10000)));
+
+    Promise.all(promises).then(() => {
+        if (hideRingLoader) hideRingLoader();
+    });
+}
 
 if (document.readyState === 'complete') {
-    handleLoad();
+    waitForAllContentLoaded();
 } else {
-    window.addEventListener('load', handleLoad);
-    // Safety timeout: don't let the loader stay more than 8 seconds
-    setTimeout(handleLoad, 8000);
+    window.addEventListener('load', waitForAllContentLoaded);
 }
 
 gsap.registerPlugin(ScrollTrigger);
