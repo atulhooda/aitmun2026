@@ -1,6 +1,9 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initRingLoader } from './ring-loader.js';
+import { ParticleTextEffect } from './particle-text.js';
+import { WaveEffect } from './waves.js';
+import { PixelSnowEffect } from './pixel-snow.js';
 
 // --- FORCE SCROLL TO TOP ON REFRESH ---
 if ('scrollRestoration' in history) {
@@ -440,3 +443,46 @@ function updateContribCarousel() {
         if (e.key === 'Escape') lightbox.classList.remove('active');
     });
 })();
+
+// --- INITIALIZE WELCOME PARTICLES ---
+const particleCanvas = document.getElementById('particle-canvas');
+if (particleCanvas) {
+    new ParticleTextEffect(particleCanvas, ["WELCOME TO", "AIT-MUN"]);
+}
+
+// --- INITIALIZE ABOUT SNOW ---
+const aboutSnow = document.getElementById('about-snow');
+if (aboutSnow) {
+    new PixelSnowEffect(aboutSnow, {
+        color: "#ffffff",
+        flakeSize: 0.01,
+        minFlakeSize: 1.25,
+        pixelResolution: 200,
+        speed: 1.25,
+        density: 0.3,
+        direction: 125,
+        brightness: 1,
+        depthFade: 8,
+        farPlane: 20,
+        gamma: 0.4545,
+        variant: "square"
+    });
+}
+
+// --- INITIALIZE GALLERY WAVES ---
+const galleryWaves = document.getElementById('gallery-waves');
+if (galleryWaves) {
+    new WaveEffect(galleryWaves, {
+        lineColor: "#ffffff",
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        waveSpeedX: 0.0125,
+        waveSpeedY: 0.01,
+        waveAmpX: 40,
+        waveAmpY: 20,
+        friction: 0.9,
+        tension: 0.01,
+        maxCursorMove: 120,
+        xGap: 12,
+        yGap: 36
+    });
+}
