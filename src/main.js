@@ -1,7 +1,24 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initRingLoader } from './ring-loader.js';
-import { WaveEffect } from './waves.js';
+import { initParticles } from './particles-bg.js';
+
+// --- INITIALIZE PARTICLES BACKGROUND ---
+function setupParticlesBg() {
+    const container = document.createElement('div');
+    container.id = 'particles-bg';
+    container.className = 'fixed inset-0 pointer-events-none';
+    container.style.zIndex = '-1';
+    document.body.prepend(container);
+    initParticles(container);
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupParticlesBg);
+} else {
+    setupParticlesBg();
+}
+
 
 // --- FORCE SCROLL TO TOP ON REFRESH ---
 if ('scrollRestoration' in history) {
@@ -246,47 +263,4 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initGalleryOptimization);
 } else {
     initGalleryOptimization();
-}
-
-// --- INITIALIZE WAVE EFFECTS ---
-const initWaves = () => {
-    const aboutWavesContainer = document.getElementById('about-waves');
-    if (aboutWavesContainer) {
-        new WaveEffect(aboutWavesContainer, {
-            lineColor: "#ffffff",
-            backgroundColor: "transparent", // Better on black background
-            waveSpeedX: 0.0125,
-            waveSpeedY: 0.01,
-            waveAmpX: 40,
-            waveAmpY: 20,
-            friction: 0.9,
-            tension: 0.01,
-            maxCursorMove: 120,
-            xGap: 12,
-            yGap: 36
-        });
-    }
-
-    const contributionsWavesContainer = document.getElementById('contributions-waves');
-    if (contributionsWavesContainer) {
-        new WaveEffect(contributionsWavesContainer, {
-            lineColor: "#ffffff",
-            backgroundColor: "transparent",
-            waveSpeedX: 0.0125,
-            waveSpeedY: 0.01,
-            waveAmpX: 40,
-            waveAmpY: 20,
-            friction: 0.9,
-            tension: 0.01,
-            maxCursorMove: 120,
-            xGap: 12,
-            yGap: 36
-        });
-    }
-};
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initWaves);
-} else {
-    initWaves();
 }

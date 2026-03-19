@@ -224,8 +224,6 @@ export class WaveEffect {
     this.mouse.lx = this.mouse.x;
     this.mouse.ly = this.mouse.y;
     this.mouse.a = Math.atan2(dy, dx);
-    this.container.style.setProperty('--x', `${this.mouse.sx}px`);
-    this.container.style.setProperty('--y', `${this.mouse.sy}px`);
 
     this.movePoints(t || 0);
     this.drawLines();

@@ -18,14 +18,14 @@
         .committee-card {
             display: flex;
             flex-direction: column;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: transparent;
             border-radius: 12px;
             border: 1px solid rgba(212, 175, 53, 0.3);
             overflow: hidden;
             transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             height: 100%;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
+            backdrop-filter: none;
         }
 
         .committee-card:hover {
@@ -35,7 +35,7 @@
         }
 
         .blue-emblem-box {
-            background: radial-gradient(circle at center, rgba(27, 54, 93, 0.4), transparent);
+            background: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -88,6 +88,7 @@
             letter-spacing: 0.2em;
             background: linear-gradient(to bottom, #f9e498, #d4af37, #7a5a2a);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             font-family: 'Cinzel', serif;
             filter: drop-shadow(0 0 10px rgba(212, 175, 53, 0.3));
@@ -120,8 +121,8 @@
             top: 0;
             width: 100%;
             z-index: 50;
-            background-color: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(12px);
+            background-color: transparent;
+            backdrop-filter: none;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0.75rem 0;
             transition: all 0.3s ease;
@@ -148,7 +149,7 @@
     </style>
 </head>
 
-<body class="bg-midnight text-mithril antialiased font-serif-body min-h-screen overflow-x-hidden">
+<body class="text-mithril antialiased font-serif-body min-h-screen overflow-x-hidden" style="background-color: #0A0F0A;">
     <div class="page-border"></div>
     <!-- Ring-loader overlay -->
     <div id="ring-loader"
@@ -176,7 +177,7 @@
                 <a href="/committees.html" class="text-[13px] font-bold uppercase tracking-wider text-gold-leaf font-serif-title">Councils</a>
                 <a href="/index.html#sponsors" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">Proprietors</a>
                 <a href="/index.html#gallery" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">Chronicles</a>
-                <a href="/secretariat.html" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">High Table</a>
+
                 <a href="/index.html#faq" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">FAQ</a>
                 <button onclick="window.open('https://linktr.ee/AITMUN2026?utm_source=ig&utm_medium=social&utm_content=link_in_bio', '_blank')" 
                     class="px-5 py-2 bg-primary text-black rounded font-black text-[12px] uppercase tracking-widest hover:bg-white transition-all shadow-lg shadow-primary/20 font-serif-title">Enlist Now</button>
@@ -188,7 +189,6 @@
     </nav>
 
     <main class="section-dark">
-        <div class="border-frame max-w-7xl mx-auto p-4 md:p-12 relative z-10">
             <!-- Luxury Corners -->
             <div class="corner corner-tl"></div>
             <div class="corner corner-tr"></div>
@@ -211,13 +211,12 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- CCC -->
-                <article class="committee-card reveal golden-border-v2">
+                <article class="committee-card reveal">
                     <div class="blue-emblem-box">
-                        <div class="absolute inset-0 bg-gradient-to-b from-gold-primary/10 to-transparent"></div>
-                        <img src="/council-of-elrond-logo.png" alt="CCC Emblem" class="w-40 h-40 object-contain relative z-10 brightness-110 contrast-110" loading="lazy" decoding="async">
+                        <img src="/com/5.png" alt="CCC Emblem" class="w-40 h-40 object-contain relative z-10 brightness-110 contrast-110" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title cinematic-title" style="font-size: 1.1rem;">Continuous Crisis Committee (CCC)</h3>
+                        <h3 class="card-title">Continuous Crisis Committee (CCC)</h3>
                         <p class="card-desc">A fast-paced committee where the situation evolves every moment. Delegates must react to classified crises, form quick alliances, and take strategic decisions that can change the course of events—much like the unexpected trials faced across Middle-earth.</p>
                     </div>
                 </article>
@@ -225,7 +224,7 @@
                 <!-- UN Security Council -->
                 <article class="committee-card reveal">
                     <div class="blue-emblem-box">
-                        <img src="/unsc.png" alt="UNSC Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
+                        <img src="/com/2.png" alt="UNSC Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">United Nations Security Council (UNSC)</h3>
@@ -236,7 +235,7 @@
                 <!-- UN Human Rights Council -->
                 <article class="committee-card reveal">
                     <div class="blue-emblem-box">
-                        <img src="/unhrc.png" alt="UNHRC Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
+                        <img src="/com/1.png" alt="UNHRC Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">United Nations Human Rights Council (UNHRC)</h3>
@@ -247,7 +246,7 @@
                 <!-- UNODC -->
                 <article class="committee-card reveal">
                     <div class="blue-emblem-box">
-                        <img src="/unodc.png" alt="UNODC Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
+                        <img src="/com/2.png" alt="UNODC Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">United Nations Office on Drugs and Crime (UNODC)</h3>
@@ -258,7 +257,7 @@
                 <!-- All India Political Parties Meet -->
                 <article class="committee-card reveal">
                     <div class="blue-emblem-box">
-                        <img src="/aippm.png" alt="AIPPM Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
+                        <img src="/com/4.png" alt="AIPPM Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">All India Political Parties Meet (AIPPM)</h3>
@@ -269,7 +268,7 @@
                 <!-- International Press -->
                 <article class="committee-card reveal">
                     <div class="blue-emblem-box">
-                        <img src="/ip.png" alt="IP Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
+                        <img src="/com/3.png" alt="IP Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">International Press (IP)</h3>

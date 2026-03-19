@@ -22,6 +22,8 @@
         "imagemin": "^9.0.1",
         "imagemin-cli": "^8.0.0",
         "imagemin-webp": "^8.0.0",
+        "lenis": "^1.3.19",
+        "ogl": "^1.0.11",
         "svgo": "^4.0.1",
         "three": "^0.183.2"
     }

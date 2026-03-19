@@ -12,9 +12,11 @@ export default {
         extend: {
             colors: {
                 "primary": "#d4af37",
-                "midnight": "#030508",
+                "midnight": "#0A0F0A",
                 "mithril": "#f1f5f9",
                 "gold-leaf": "#d4af37",
+                "gold-bright": "#f9e498",
+                "gold-deep": "#7a5a2a",
                 "deep-blue": "#0a192f",
                 "background-light": "#f1f5f9",
                 "background-dark": "#030508",
