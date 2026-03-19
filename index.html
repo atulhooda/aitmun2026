@@ -8,13 +8,15 @@
     <meta name="description"
         content="Join the most prestigious diplomatic simulation. Forge alliances, debate global issues, and lead the future at AIT MUN 2026.">
     <link rel="stylesheet" href="./src/style.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="/assets/4.png" fetchpriority="high">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
-<body class="bg-black text-slate-100 antialiased font-body overflow-x-hidden">
+<body class="bg-midnight text-mithril antialiased font-serif-body overflow-x-hidden">
+    <!-- 212 Theme Page Border -->
+    <div class="page-border"></div>
 
     <!-- Ring-loader overlay -->
     <div id="ring-loader"
@@ -31,8 +33,8 @@
         </div>
     </div>
 
-    <!-- Scrollytelling Background -->
-    <canvas id="scrolly-bg" class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none object-cover"></canvas>
+    <!-- Background removed as per theme request -->
+
 
     <div id="mobile-menu"
         class="fixed inset-0 bg-black z-[10000] flex flex-col translate-x-full transition-transform duration-500 lg:hidden w-screen h-screen">
@@ -45,19 +47,17 @@
         
         <!-- Scrollable Menu Content -->
         <div class="flex-1 flex flex-col items-center justify-start gap-6 p-8 pt-0 overflow-y-auto">
-            <a href="/" class="text-xl font-bold text-slate-100 hover:text-primary uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2">Home</a>
-            <a href="#about" class="text-xl font-bold text-slate-100 hover:text-primary uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2">About</a>
-            <a href="#committees"
-                class="text-xl font-bold text-slate-100 hover:text-primary uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2">Committees</a>
-            <a href="#gallery"
-                class="text-xl font-bold text-slate-100 hover:text-primary uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2">Gallery</a>
-            <a href="#team" class="text-xl font-bold text-slate-100 hover:text-primary uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2">Team</a>
-            <a href="#faq" class="text-xl font-bold text-slate-100 hover:text-primary uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2">FAQ</a>
+            <a href="/" class="text-xl font-bold text-mithril hover:text-gold-leaf uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2 font-serif-title">Home</a>
+            <a href="#about" class="text-xl font-bold text-mithril hover:text-gold-leaf uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2 font-serif-title">Legend</a>
+            <a href="#committees" class="text-xl font-bold text-mithril hover:text-gold-leaf uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2 font-serif-title">Councils</a>
+            <a href="#gallery" class="text-xl font-bold text-mithril hover:text-gold-leaf uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2 font-serif-title">Chronicles</a>
+            <a href="/secretariat.html" class="text-xl font-bold text-mithril hover:text-gold-leaf uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2 font-serif-title">The High Table</a>
+            <a href="#faq" class="text-xl font-bold text-mithril hover:text-gold-leaf uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2 font-serif-title">FAQ</a>
             
-            <div class="w-full h-px bg-primary/20 my-4 max-w-[200px] flex-shrink-0"></div>
+            <div class="w-full h-px bg-gold-leaf/20 my-4 max-w-[200px] flex-shrink-0"></div>
             
             <a href="https://linktr.ee/AITMUN2026?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank"
-                class="gold-shimmer px-10 py-4 rounded-full text-background-dark font-black tracking-widest uppercase text-sm mobile-link shadow-lg flex-shrink-0 mb-12">Register
+                class="gold-shimmer px-10 py-4 rounded-full text-black font-black tracking-widest uppercase text-sm mobile-link shadow-lg flex-shrink-0 mb-12">Register
                 Now</a>
         </div>
     </div>
@@ -67,20 +67,19 @@
         <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="main-nav">
             <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                 <a href="/" class="flex items-center gap-3 group">
-                    <img src="/assets/logo.png" alt="AIT MUN Logo" class="h-8 md:h-10 w-auto">
-                    <span class="text-xl font-bold tracking-tight text-slate-100 font-sans">AIT MUN</span>
+                    <img src="/assets/logo.png" alt="AIT MUN Logo" class="h-8 md:h-10 w-auto" fetchpriority="high">
+                    <span class="text-xl font-bold tracking-tight text-mithril font-serif-title">AIT MUN</span>
                 </a>
 
                 <div class="hidden lg:flex items-center gap-6">
-                    <a href="/" class="nav-link-modern">Home</a>
-                    <a href="#about" class="nav-link-modern">About</a>
-                    <a href="#committees" class="nav-link-modern">Committees</a>
-                    <a href="#gallery" class="nav-link-modern">Gallery</a>
-                    <a href="#team" class="nav-link-modern">Team</a>
-                    <a href="#faq" class="nav-link-modern">FAQ</a>
+                    <a href="/" class="nav-link-modern font-serif-title text-mithril hover:text-gold-leaf transition-colors">Home</a>
+                    <a href="#about" class="nav-link-modern font-serif-title text-mithril hover:text-gold-leaf transition-colors">About</a>
+                    <a href="/committees.html" class="nav-link-modern font-serif-title text-mithril hover:text-gold-leaf transition-colors">Councils</a>
+                    <a href="#gallery" class="nav-link-modern font-serif-title text-mithril hover:text-gold-leaf transition-colors">Chronicles</a>
+                    <a href="/secretariat.html" class="nav-link-modern font-serif-title text-mithril hover:text-gold-leaf transition-colors">The High Table</a>
+                    <a href="#faq" class="nav-link-modern font-serif-title text-mithril hover:text-gold-leaf transition-colors">FAQ</a>
                     <button onclick="window.open('https://linktr.ee/AITMUN2026?utm_source=ig&utm_medium=social&utm_content=link_in_bio', '_blank')"
-                        class="ml-4 px-4 py-2 bg-primary text-background-dark rounded font-bold text-[13px] hover:bg-white transition-all font-sans">Register
-                        Now</button>
+                        class="ml-4 px-4 py-2 bg-primary text-black rounded font-bold text-[13px] hover:bg-white transition-all font-serif-title uppercase tracking-widest">Enlist Now</button>
                 </div>
 
                 <button class="lg:hidden text-primary" id="mobile-menu-btn">
@@ -96,10 +95,10 @@
 
             <div class="relative z-20 text-center px-4 max-w-5xl">
                 <h1
-                    class="text-4xl md:text-6xl lg:text-8xl font-display font-black leading-[0.9] tracking-tighter mb-8 uppercase gradient-text-animated">
+                    class="text-4xl md:text-6xl lg:text-9xl cinematic-title font-black leading-[0.9] tracking-tighter mb-8 uppercase">
                     AIT <br />
                     <span class="italic text-3xl md:text-5xl lg:text-7xl">MODEL UNITED NATIONS</span>
-                    <div class="text-xl md:text-2xl mt-6 font-display font-bold tracking-[0.3em] text-primary/90 opacity-0 animate-fade-in-up" style="animation-delay: 1.2s; animation-fill-mode: forwards;">14th Edition</div>
+                    <div class="text-xl md:text-2xl mt-6 font-serif font-bold tracking-[0.3em] text-gold-bright opacity-0 animate-fade-in-up" style="animation-delay: 1.2s; animation-fill-mode: forwards;">14th Edition</div>
                 </h1>
 
 
@@ -132,14 +131,13 @@
 
 
         <section id="about"
-            class="min-h-screen lg:h-screen w-full flex flex-col items-center justify-center py-20 md:py-32 px-6 scroll-mt-20 reveal-scroll transition-all duration-300 relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/13.jpg');">
-            <!-- Pixel Snow Effect Background -->
-            <div id="about-snow" class="absolute inset-0 pointer-events-none opacity-40 z-0"></div>
+            class="min-h-screen lg:h-screen w-full flex flex-col items-center justify-center py-20 md:py-32 px-6 scroll-mt-20 reveal-scroll transition-all duration-300 relative overflow-hidden bg-black">
+            <!-- Background effects removed -->
 
             <div class="max-w-5xl mx-auto relative z-10">
                 <!-- Centered Header -->
                 <div class="text-center mb-16 reveal">
-                    <h2 class="text-3xl md:text-5xl font-display font-black font-glow-black uppercase tracking-tight">
+                    <h2 class="text-3xl md:text-5xl cinematic-title">
                         About AIT MUN</h2>
                 </div>
 
@@ -159,31 +157,44 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
 
 
             </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Committees Grid -->
-        <section id="committees"
-            class="min-h-[85vh] flex flex-col justify-center py-24 px-6 scroll-mt-20 reveal-scroll transition-opacity duration-300 relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/14.jpg');">
+        <!-- Vine Divider before Committees -->
+        <div class="vine-divider max-w-4xl mx-auto opacity-40"></div>
 
-            <div class="max-w-7xl mx-auto relative z-10">
-                <div class="text-center mb-12 reveal">
-                    <div class="inline-block">
-                        <h2 class="text-primary text-[8px] font-bold tracking-[0.4em] uppercase mb-1">Deliberations</h2>
-                        <h3 class="text-3xl md:text-5xl font-display font-black font-glow-black italic uppercase tracking-tight">
-                            The Committees
-                        </h3>
+        <!-- Committees Grid -->
+        <section id="committees" class="min-h-[85vh] flex flex-col justify-center py-24 px-6 scroll-mt-20 reveal-scroll transition-opacity duration-300 relative overflow-hidden bg-transparent">
+            <div class="border-frame max-w-7xl mx-auto p-4 md:p-12 relative">
+                <!-- Luxury Corners -->
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+
+                <div class="relative z-10">
+                    <div class="text-center mb-12 reveal">
+                        <div class="inline-block">
+                            <h2 class="text-gold-bright text-[10px] font-bold tracking-[0.5em] uppercase mb-2">Deliberations</h2>
+                            <h3 class="text-3xl md:text-5xl cinematic-title italic">
+                                The High Councils
+                            </h3>
+                            <div class="w-16 h-px bg-primary/40 mx-auto mt-6"></div>
+                        </div>
                     </div>
-                </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 pb-6">
                     <!-- UNSC -->
                     <!-- CCC -->
-                    <div class="group committee-glow-card bg-black/40 backdrop-blur-xl rounded-xl overflow-hidden reveal">
-                        <div class="bg-[#0c1a33]/80 p-4 pb-6 flex flex-col items-center justify-end h-48 relative overflow-hidden border-b border-primary/20">
-                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60"></div>
+                    <div class="group relative rounded-xl overflow-hidden reveal golden-border-v2">
+                        <div class="h-48 relative overflow-hidden border-b border-primary/20">
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-gold-primary/10 to-black/80"></div>
                             <div class="glow-overlay"></div>
-                            <img src="/council-of-elrond-logo.png" alt="CCC" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;">
-                            <h4 class="text-white text-xs font-bold font-display mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">Continuous Crisis Committee (CCC)</h4>
+                            <div class="flex flex-col items-center justify-center h-full relative z-10">
+                                <img src="/council-of-elrond-logo.png" alt="CCC" class="w-20 h-20 object-contain transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;" loading="lazy" decoding="async">
+                                <h4 class="text-white text-xs font-bold font-serif mt-2 text-center uppercase tracking-wider leading-tight">Continuous Crisis Committee (CCC)</h4>
+                            </div>
                         </div>
                         <div class="p-6 relative">
                             <p class="text-slate-300 text-sm leading-relaxed font-medium">A fast-paced committee where the situation evolves every moment. Delegates must react to classified crises, form quick alliances, and take strategic decisions that can change the course of events—much like the unexpected trials faced across Middle-earth.</p>
@@ -194,12 +205,12 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                     </div>
 
                     <!-- UNSC -->
-                    <div class="group committee-glow-card bg-black/40 backdrop-blur-xl rounded-xl overflow-hidden reveal delay-75">
+                    <div class="group committee-glow-card bg-black border border-primary/20 rounded-lg overflow-hidden reveal delay-75">
                         <div class="bg-[#0c1a33]/80 p-4 pb-6 flex flex-col items-center justify-end h-48 relative overflow-hidden border-b border-primary/20">
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60"></div>
                             <div class="glow-overlay"></div>
-                            <img src="/council-of-elrond-logo.png" alt="UNSC" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;">
-                            <h4 class="text-white text-xs font-bold font-display mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">United Nations Security Council (UNSC)</h4>
+                            <img src="/council-of-elrond-logo.png" alt="UNSC" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;" loading="lazy" decoding="async">
+                            <h4 class="text-white text-xs font-bold font-serif mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">United Nations Security Council (UNSC)</h4>
                         </div>
                         <div class="p-6 relative">
                             <p class="text-slate-300 text-sm leading-relaxed font-medium">The council responsible for maintaining global peace and security. Delegates will address the escalating Middle East tensions involving the US, Israel, and Iran, debating proxy warfare and retaliatory strikes while striving to prevent further conflict.</p>
@@ -210,12 +221,12 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                     </div>
 
                     <!-- UNHRC -->
-                    <div class="group committee-glow-card bg-black/40 backdrop-blur-xl rounded-xl overflow-hidden reveal delay-150">
+                    <div class="group committee-glow-card bg-black border border-primary/20 rounded-lg overflow-hidden reveal delay-150">
                         <div class="bg-[#0c1a33]/80 p-4 pb-6 flex flex-col items-center justify-end h-48 relative overflow-hidden border-b border-primary/20">
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60"></div>
                             <div class="glow-overlay"></div>
-                            <img src="/assets/cc.png" alt="UNHRC" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;">
-                            <h4 class="text-white text-xs font-bold font-display mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">United Nations Human Rights Council (UNHRC)</h4>
+                            <img src="/assets/cc.png" alt="UNHRC" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;" loading="lazy" decoding="async">
+                            <h4 class="text-white text-xs font-bold font-serif mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">United Nations Human Rights Council (UNHRC)</h4>
                         </div>
                         <div class="p-6 relative">
                             <p class="text-slate-300 text-sm leading-relaxed font-medium">A forum dedicated to protecting fundamental human rights. Delegates will examine how emerging military technologies and artificial intelligence impact privacy, freedom, and dignity in an increasingly digital world.</p>
@@ -226,12 +237,12 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                     </div>
 
                     <!-- UNODC -->
-                    <div class="group committee-glow-card bg-black/40 backdrop-blur-xl rounded-xl overflow-hidden reveal delay-225">
+                    <div class="group committee-glow-card bg-black border border-primary/20 rounded-lg overflow-hidden reveal delay-225">
                         <div class="bg-[#0c1a33]/80 p-4 pb-6 flex flex-col items-center justify-end h-48 relative overflow-hidden border-b border-primary/20">
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60"></div>
                             <div class="glow-overlay"></div>
-                            <img src="/council-of-elrond-logo.png" alt="UNODC" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;">
-                            <h4 class="text-white text-xs font-bold font-display mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">United Nations Office on Drugs and Crime (UNODC)</h4>
+                            <img src="/council-of-elrond-logo.png" alt="UNODC" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;" loading="lazy" decoding="async">
+                            <h4 class="text-white text-xs font-bold font-serif mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">United Nations Office on Drugs and Crime (UNODC)</h4>
                         </div>
                         <div class="p-6 relative">
                             <p class="text-slate-300 text-sm leading-relaxed font-medium">This committee tackles organized crime, narcotics trafficking, and international criminal networks. Delegates will discuss the impact of external interference on crime networks, with a special focus on regions such as Venezuela and Iran.</p>
@@ -242,12 +253,12 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                     </div>
 
                     <!-- AIPPM -->
-                    <div class="group committee-glow-card bg-black/40 backdrop-blur-xl rounded-xl overflow-hidden reveal delay-300">
+                    <div class="group committee-glow-card bg-black border border-primary/20 rounded-lg overflow-hidden reveal delay-300">
                         <div class="bg-[#0c1a33]/80 p-4 pb-6 flex flex-col items-center justify-end h-48 relative overflow-hidden border-b border-primary/20">
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60"></div>
                             <div class="glow-overlay"></div>
-                            <img src="/fellowship-accord-logo.png" alt="AIPPM" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;">
-                            <h4 class="text-white text-xs font-bold font-display mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">All India Political Parties Meet (AIPPM)</h4>
+                            <img src="/fellowship-accord-logo.png" alt="AIPPM" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;" loading="lazy" decoding="async">
+                            <h4 class="text-white text-xs font-bold font-serif mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">All India Political Parties Meet (AIPPM)</h4>
                         </div>
                         <div class="p-6 relative">
                             <p class="text-slate-300 text-sm leading-relaxed font-medium">A dynamic national committee where Indian political leaders debate pressing domestic issues. Delegates will deliberate on the regulation of social media platforms, addressing misinformation, surveillance concerns, and constitutional free speech safeguards.</p>
@@ -258,12 +269,12 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                     </div>
 
                     <!-- IP -->
-                    <div class="group committee-glow-card bg-black/40 backdrop-blur-xl rounded-xl overflow-hidden reveal delay-375">
+                    <div class="group committee-glow-card bg-black border border-primary/20 rounded-lg overflow-hidden reveal delay-375">
                         <div class="bg-[#0c1a33]/80 p-4 pb-6 flex flex-col items-center justify-end h-48 relative overflow-hidden border-b border-primary/20">
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60"></div>
                             <div class="glow-overlay"></div>
-                            <img src="/international-press-logo.png" alt="IP" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;">
-                            <h4 class="text-white text-xs font-bold font-display mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">International Press (IP)</h4>
+                            <img src="/international-press-logo.png" alt="IP" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;" loading="lazy" decoding="async">
+                            <h4 class="text-white text-xs font-bold font-serif mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">International Press (IP)</h4>
                         </div>
                         <div class="p-6 relative">
                             <p class="text-slate-300 text-sm leading-relaxed font-medium">The storytellers of the conference. Journalists and photographers will document debates, expose controversies, and shape narratives, ensuring transparency while capturing every defining moment of the council.</p>
@@ -277,88 +288,97 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
         </section>
     </div>
 
-    <!-- Photo Collage Gallery Section -->
-    <section id="gallery" class="min-h-screen lg:h-screen w-full flex flex-col items-center justify-center py-20 md:py-24 px-6 scroll-mt-20 relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/5.jpg');">
-        <!-- Waves Effect Background -->
-        <div id="gallery-waves" class="absolute inset-0 pointer-events-none opacity-30 z-0"></div>
+        <!-- Vine Divider before Gallery -->
+        <div class="vine-divider max-w-4xl mx-auto opacity-30"></div>
 
-        <div class="relative z-10">
-            <div class="text-center mb-16 reveal">
-                <div class="inline-block">
-                    <h2 class="text-primary text-[8px] font-bold tracking-[0.4em] uppercase mb-1">Memories</h2>
-                    <h3 class="text-3xl md:text-5xl font-display font-black font-glow-black italic uppercase tracking-tight">
-                        Gallery
-                    </h3>
-                </div>
-            </div>
+        <!-- Photo Collage Gallery Section -->
+        <section id="gallery" class="min-h-screen lg:h-screen w-full flex flex-col items-center justify-center py-20 md:py-24 px-6 scroll-mt-20 relative overflow-hidden bg-transparent">
+            <div class="border-frame max-w-7xl mx-auto p-4 md:p-8 relative">
+                <!-- Luxury Corners -->
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+
+                <div class="relative z-10">
+                    <div class="text-center mb-16 reveal">
+                        <div class="inline-block">
+                            <h2 class="text-gold-bright text-[10px] font-bold tracking-[0.5em] uppercase mb-2">Chronicles</h2>
+                            <h3 class="text-3xl md:text-5xl cinematic-title italic">
+                                The Archives
+                            </h3>
+                            <div class="w-16 h-px bg-primary/40 mx-auto mt-6"></div>
+                        </div>
+                    </div>
 
             <div class="collage-grid max-w-7xl mx-auto">
                 <!-- Row 1-2 -->
                 <div class="collage-item collage-tall reveal">
-                    <img src="/col/g1 (1).png" alt="AIT MUN Memory 1" loading="lazy" width="400" height="600" style="max-width:100%;height:auto;">
+                    <img src="/col/g1 (1).png" alt="AIT MUN Memory 1" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
                     <div class="collage-overlay"></div>
                 </div>
                 <div class="collage-item reveal">
-                    <img src="/col/g2 (1).png" alt="AIT MUN Memory 2" loading="lazy" width="400" height="600" style="max-width:100%;height:auto;">
+                    <img src="/col/g2 (1).png" alt="AIT MUN Memory 2" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
                     <div class="collage-overlay"></div>
                 </div>
                 <div class="collage-item reveal">
-                    <img src="/col/g3 (1).png" alt="AIT MUN Memory 3" loading="lazy" width="400" height="600" style="max-width:100%;height:auto;">
+                    <img src="/col/g3 (1).png" alt="AIT MUN Memory 3" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
                     <div class="collage-overlay"></div>
                 </div>
                 <div class="collage-item reveal">
-                    <img src="/col/janu (1).jpeg" alt="AIT MUN Memory" loading="lazy" width="400" height="600" style="max-width:100%;height:auto;">
+                    <img src="/col/janu (1).jpeg" alt="AIT MUN Memory" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
                     <div class="collage-overlay"></div>
                 </div>
                 <div class="collage-item collage-wide reveal">
-                    <img src="/col/g4 (1).png" alt="AIT MUN Memory 4" loading="lazy" width="600" height="400" style="max-width:100%;height:auto;">
+                    <img src="/col/g4 (1).png" alt="AIT MUN Memory 4" loading="lazy" decoding="async" fetchpriority="low" width="600" height="400" class="gallery-img">
                     <div class="collage-overlay"></div>
                 </div>
                 <div class="collage-item reveal">
-                    <img src="/col/g6 (1).png" alt="AIT MUN Memory 6" loading="lazy" width="400" height="600" style="max-width:100%;height:auto;">
+                    <img src="/col/g6 (1).png" alt="AIT MUN Memory 6" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
                     <div class="collage-overlay"></div>
                 </div>
                 <!-- Row 3-4 -->
                 <div class="collage-item reveal">
-                    <img src="/col/g5 (1).png" alt="AIT MUN Memory 5" loading="lazy" width="400" height="600" style="max-width:100%;height:auto;">
+                    <img src="/col/g5 (1).png" alt="AIT MUN Memory 5" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
                     <div class="collage-overlay"></div>
                 </div>
                 <div class="collage-item collage-wide reveal">
-                    <img src="/col/g8 (1).png" alt="AIT MUN Memory 8" loading="lazy" width="600" height="400" style="max-width:100%;height:auto;">
+                    <img src="/col/g8 (1).png" alt="AIT MUN Memory 8" loading="lazy" decoding="async" fetchpriority="low" width="600" height="400" class="gallery-img">
                     <div class="collage-overlay"></div>
                 </div>
                 <div class="collage-item reveal">
-                    <img src="/col/g7 (1).png" alt="AIT MUN Memory 7" loading="lazy" width="400" height="600" style="max-width:100%;height:auto;">
+                    <img src="/col/g7 (1).png" alt="AIT MUN Memory 7" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
                     <div class="collage-overlay"></div>
                 </div>
 
             </div> <!-- End of max-w-7xl mx-auto -->
-        </div> <!-- End of z-10 for gallery contents -->
+            </div> <!-- End of border-frame -->
+        </section>
 
-        <!-- Lightbox -->
-        <div id="gallery-lightbox" class="lightbox-overlay" onclick="this.classList.remove('active')">
-            <img id="lightbox-img" src="" alt="Enlarged photo">
-            <button class="lightbox-close"
-                onclick="document.getElementById('gallery-lightbox').classList.remove('active')">&times;</button>
-        </div>
-    </section>
+        <!-- Vine Divider before Sponsors -->
+        <div class="vine-divider max-w-5xl mx-auto opacity-20"></div>
 
-    <!-- Sponsors Section -->
-    <section id="sponsors"
-        class="min-h-screen lg:h-screen w-full flex flex-col items-center justify-center py-20 md:py-24 px-6 reveal-scroll transition-all duration-300 relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/15.jpg');">
-
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="text-center mb-12 reveal">
-                <div class="inline-block max-w-xl px-4">
-                    <h2 class="text-primary text-[8px] font-bold tracking-[0.4em] uppercase mb-1">Patrons</h2>
-                    <h3 class="text-3xl md:text-5xl font-display font-black font-glow-black italic uppercase tracking-tight mb-6">
-                        Our Sponsors
-                    </h3>
-                    <p class="text-slate-300 text-lg md:text-xl font-display font-bold uppercase tracking-widest reveal">
-                        Invitation to Sponsors
-                    </p>
-                </div>
-            </div>
+        <!-- Sponsors Section -->
+        <section id="sponsors" class="min-h-screen lg:h-screen w-full flex flex-col items-center justify-center py-20 md:py-24 px-6 reveal-scroll transition-all duration-300 relative overflow-hidden bg-transparent">
+            <div class="border-frame max-w-7xl mx-auto p-4 md:p-12 relative">
+                <!-- Luxury Corners -->
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+                
+                <div class="max-w-7xl mx-auto relative z-10">
+                    <div class="text-center mb-12 reveal">
+                        <div class="inline-block max-w-xl px-4">
+                            <h2 class="text-gold-bright text-[10px] font-bold tracking-[0.5em] uppercase mb-2">Proprietors</h2>
+                            <h3 class="text-3xl md:text-5xl cinematic-title italic mb-6">
+                                Grand Patrons
+                            </h3>
+                            <p class="text-mithril/60 text-lg md:text-xl font-serif-body italic tracking-widest reveal">
+                                Guardians of the Summit
+                            </p>
+                        </div>
+                    </div>
 
             <!-- Tiered Sponsors Grid -->
             <div class="space-y-8">
@@ -373,13 +393,13 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
 
 
     <!-- Contributions Section -->
-    <section class="min-h-screen lg:h-screen w-full flex flex-col items-center justify-center py-20 md:py-24 px-6 scroll-mt-20 text-slate-100 relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/7.jpg');">
+    <section class="min-h-screen lg:h-screen w-full flex flex-col items-center justify-center py-20 md:py-24 px-6 scroll-mt-20 text-slate-100 relative overflow-hidden bg-black">
 
         <div class="max-w-4xl mx-auto relative z-10">
             <div class="text-center mb-8 reveal">
-                <h2 class="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-4">Gratitude</h2>
-                <h3 class="text-3xl md:text-5xl font-display font-black font-shiny-black mb-4 italic uppercase tracking-tight leading-tight">
-                    Some Generous <span class="text-glow">Contributions</span>
+                <h2 class="text-gold-bright text-sm font-bold tracking-[0.4em] uppercase mb-4">Gratitude</h2>
+                <h3 class="text-3xl md:text-5xl cinematic-title italic">
+                    Generous Contributions
                 </h3>
             </div>
 
@@ -391,13 +411,13 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                         <div class="contrib-card w-full flex-shrink-0 px-4">
                             <div
                                 class="bg-black/95 backdrop-blur-xl border border-primary/30 rounded-2xl p-4 md:p-6 flex flex-col md:flex-row items-center gap-6 relative shadow-[0_0_30px_rgba(212,175,53,0.2)] transition-all duration-500 hover:shadow-[0_0_50px_rgba(212,175,53,0.3)]">
-                                <div class="absolute top-6 left-8 text-primary text-4xl opacity-30 font-display">&#8220;
+                                <div class="absolute top-6 left-8 text-primary text-4xl opacity-30 font-serif">&#8220;
                                 </div>
                                 <div class="flex-shrink-0">
                                     <div
                                         class="w-20 h-20 rounded-full border-2 border-primary overflow-hidden bg-primary/10">
                                         <img src="/col/janu (1).jpeg" alt="Raveen Janu"
-                                            class="w-full h-full object-cover">
+                                            class="w-full h-full object-cover" loading="lazy" decoding="async" fetchpriority="low">
                                     </div>
                                 </div>
                                 <div class="text-center md:text-left">
@@ -405,7 +425,7 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                                         "Raveen Janu Sir, an alumnus of 2006 batch made a generous contribution of INR
                                         35K towards organization of AIT MUN 2025"
                                     </p>
-                                    <h4 class="text-slate-100 font-bold text-xl font-display">Raveen Janu</h4>
+                                    <h4 class="text-slate-100 font-bold text-xl font-serif">Raveen Janu</h4>
                                     <p class="text-primary text-sm tracking-wide">Goodwill Sponsor AIT MUN 2025</p>
                                 </div>
                             </div>
@@ -421,28 +441,39 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                 <!-- Nav Buttons -->
                 <div class="flex justify-center gap-4 mt-6">
                     <button onclick="moveContribCarousel(-1)"
-                        class="px-6 py-2 rounded-full border border-slate-500/50 text-slate-300 text-sm font-bold uppercase tracking-widest hover:border-white hover:text-white hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300">Previous</button>
+                        class="w-12 h-12 rounded-full border border-gold-leaf/30 text-gold-leaf flex items-center justify-center hover:bg-gold-leaf hover:text-black transition-all duration-500 shadow-lg hover:shadow-gold-leaf/20">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
                     <button onclick="moveContribCarousel(1)"
-                        class="px-6 py-2 rounded-full bg-primary text-background-dark text-sm font-bold uppercase tracking-widest hover:bg-white shadow-[0_0_15px_rgba(212,175,53,0.4)] hover:shadow-[0_0_25px_rgba(212,175,53,0.6)] transition-all duration-300">Next</button>
+                        class="w-12 h-12 rounded-full bg-gold-leaf text-black flex items-center justify-center hover:bg-white transition-all duration-500 shadow-lg shadow-gold-leaf/20">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="min-h-[60vh] flex flex-col justify-center py-12 px-6 scroll-mt-20 relative overflow-hidden text-slate-100 bg-cover bg-center bg-no-repeat" style="background-image: url('/assets/aa1.png'); background-attachment: fixed;">
+    <!-- Vine Divider before FAQ -->
+    <div class="vine-divider max-w-4xl mx-auto opacity-20"></div>
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <div class="text-center mb-4 reveal">
-                <div class="inline-block px-8 py-6 rounded-2xl border border-primary/40 shadow-[0_0_30px_rgba(212,175,53,0.3)] max-w-xl px-4 transition-all duration-500 hover:shadow-[0_0_50px_rgba(212,175,53,0.4)]">
-                    <h2 class="text-black/60 text-[8px] font-bold tracking-[0.4em] uppercase mb-2">Inquiries</h2>
-                    <h3 class="text-2xl md:text-3xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-b from-slate-800 to-black mb-4 italic leading-tight drop-shadow-[0_1px_0px_rgba(255,255,255,0.8)]">
-                        Frequently Asked Questions
+    <!-- FAQ Section -->
+    <section id="faq" class="min-h-[60vh] flex flex-col justify-center py-24 px-6 scroll-mt-20 relative overflow-hidden bg-transparent">
+        <div class="border-frame max-w-4xl mx-auto p-4 md:p-12 relative">
+            <!-- Luxury Corners -->
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+
+            <div class="max-w-4xl mx-auto relative z-10">
+                <div class="text-center mb-8 reveal">
+                    <h2 class="text-gold-bright text-[10px] font-bold tracking-[0.5em] uppercase mb-2">Inquiries</h2>
+                    <h3 class="text-3xl md:text-5xl cinematic-title italic">
+                        Ancient Riddles
                     </h3>
-                    <p class="text-black/80 font-sans max-w-xs mx-auto text-xs font-semibold">Find answers to common questions about AIT MUN.</p>
-                    <div class="w-12 h-1 bg-black/80 mx-auto mt-6"></div>
+                    <p class="text-mithril/40 font-serif-body max-w-xs mx-auto text-xs font-semibold">Answers sought by the fellowship.</p>
+                    <div class="w-12 h-px bg-primary/30 mx-auto mt-6"></div>
                 </div>
-            </div>
 
             <div class="space-y-2">
                 <!-- FAQ Item 1 -->
@@ -450,7 +481,7 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                     <button class="w-full p-3 text-left flex justify-between items-center group"
                         onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
                         <span
-                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-display">
+                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-serif">
                             What is Model United Nations?
                         </span>
                         <span class="material-symbols-outlined text-primary text-sm transition-transform">expand_more</span>
@@ -466,7 +497,7 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                     <button class="w-full p-3 text-left flex justify-between items-center group"
                         onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
                         <span
-                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-display">
+                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-serif">
                             Who can participate in AIT MUN?
                         </span>
                         <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
@@ -482,7 +513,7 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                     <button class="w-full p-3 text-left flex justify-between items-center group"
                         onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
                         <span
-                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-display">
+                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-serif">
                             How do I register for AIT MUN?
                         </span>
                         <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
@@ -498,7 +529,7 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                     <button class="w-full p-3 text-left flex justify-between items-center group"
                         onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
                         <span
-                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-display">
+                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-serif">
                             What should I prepare before the conference?
                         </span>
                         <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
@@ -514,7 +545,7 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                     <button class="w-full p-3 text-left flex justify-between items-center group"
                         onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
                         <span
-                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-display">
+                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-serif">
                             Will accommodation be provided?
                         </span>
                         <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
@@ -530,7 +561,7 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
                     <button class="w-full p-3 text-left flex justify-between items-center group"
                         onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
                         <span
-                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-display">
+                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-serif">
                             How can my organization sponsor AIT MUN?
                         </span>
                         <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
@@ -552,102 +583,87 @@ Step into the chamber with conviction, stand for what you believe in, and rememb
         </div>
     </section>
 
-    <!-- Dedicated Modern Footer -->
-    <footer class="bg-background-dark pt-20 pb-10 px-6 text-slate-100 border-t border-primary/20 relative z-20">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <!-- Brand & Contact Persons -->
-                <div class="reveal">
-                    <div class="flex items-center gap-3 mb-6">
-                        <img src="/assets/logo.png" alt="AIT MUN Logo" class="h-10 w-auto">
-                        <span class="text-2xl font-bold tracking-tight font-display">AIT <span
-                                class="text-primary italic">MUN</span></span>
+    <!-- BEGIN: Footer -->
+    <footer class="bg-midnight relative pt-32 pb-12 overflow-hidden border-t border-gold-leaf/10" data-purpose="footer">
+        <!-- Decorative Footer Vine Top -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gold-leaf/50 to-transparent"></div>
+        <div class="vine-divider w-full max-w-6xl mx-auto absolute top-4 left-1/2 -translate-x-1/2 opacity-30"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="mb-8 group">
+                        <a href="/" class="flex items-center gap-3">
+                            <img src="/assets/logo.png" alt="AIT MUN Logo" class="h-12 w-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" decoding="async" fetchpriority="low">
+                            <h3 class="font-serif-title text-2xl text-gold-leaf tracking-[0.2em]">AIT MUN</h3>
+                        </a>
                     </div>
-                    <div class="space-y-4">
-                        <p class="text-primary text-[11px] font-bold uppercase tracking-[0.2em]">For Any Queries
-                            Contact:</p>
-                        <div class="text-slate-400 text-sm space-y-1">
-                            <p>Harshika: <span class="text-slate-100">+91 8954842953</span></p>
-                            <p>Anhad: <span class="text-slate-100">+91 9419298707</span></p>
-                        </div>
-                        <ul class="social-icons-footer">
-                            <li>
-                                <a href="https://www.linkedin.com/company/ddq-club-ait/posts/?feedView=all" target="_blank">
-                                    <i class="fab fa-linkedin-in icon" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/ait_mun/" target="_blank">
-                                    <i class="fab fa-instagram icon" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    <p class="text-mithril/40 italic text-lg leading-relaxed mb-8">
+                        "The world is changed. I feel it in the water. I feel it in the earth. I smell it in the air."
+                    </p>
+                    <ul class="social-icons-footer">
+                        <li>
+                            <a href="https://www.linkedin.com/company/aitmun-pune/" target="_blank">
+                                <i class="fab fa-linkedin-in icon"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/ait_mun/" target="_blank">
+                                <i class="fab fa-instagram icon"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- Quick Links -->
-                <div class="reveal delay-100">
-                    <h4 class="text-lg font-bold mb-6 font-display text-primary">Quick Links</h4>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
-                        <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
-                        <li><a href="/committees.html" class="hover:text-primary transition-colors">Committees</a></li>
-                        <li><a href="#team" class="hover:text-primary transition-colors">Team</a></li>
-                        <li><a href="#faq" class="hover:text-primary transition-colors">FAQ</a></li>
+                <div>
+                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-xs tracking-[0.5em] border-b border-mithril/10 pb-4">Chronicles</h4>
+                    <ul class="space-y-4 text-mithril/40 text-sm font-light">
+                        <li><a href="/" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> Home</a></li>
+                        <li><a href="#about" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> Legend</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> Councils</a></li>
+                        <li><a href="/secretariat.html" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> High Table</a></li>
                     </ul>
                 </div>
 
                 <!-- Committees -->
-                <div class="reveal delay-200">
-                    <h4 class="text-lg font-bold mb-6 font-display text-primary">Committees</h4>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li><a href="/committees.html" class="hover:text-primary transition-colors">CCC</a></li>
-                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNSC</a></li>
-                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNHRC</a></li>
-                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNODC</a></li>
-                        <li><a href="/committees.html" class="hover:text-primary transition-colors">AIPPM</a></li>
-                        <li><a href="/committees.html" class="hover:text-primary transition-colors">IP</a></li>
+                <div>
+                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-xs tracking-[0.5em] border-b border-mithril/10 pb-4">The Houses</h4>
+                    <ul class="grid grid-cols-2 gap-x-4 gap-y-4 text-mithril/40 text-[11px] font-light">
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">CCC</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">UNSC</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">UNHRC</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">UNODC</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">AIPPM</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">IP</a></li>
                     </ul>
                 </div>
 
-                <!-- Contact Us & Map -->
-                <div class="reveal delay-300">
-                    <h4 class="text-lg font-bold mb-6 font-display text-primary">Contact Us</h4>
-                    <div class="space-y-4">
-                        <a href="mailto:aitpunemun@gmail.com"
-                            class="flex items-center gap-2 text-slate-400 hover:text-primary text-sm transition-colors">
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-xs tracking-[0.5em] border-b border-mithril/10 pb-4">Communication</h4>
+                    <div class="space-y-6 text-mithril/40 text-sm">
+                        <a href="mailto:aitpunemun@gmail.com" class="hover:text-gold-leaf transition-colors flex items-center gap-3">
                             <span class="material-symbols-outlined text-sm">mail</span>
                             aitpunemun@gmail.com
                         </a>
-                        <div class="text-slate-400 text-sm leading-relaxed">
-                            <p class="font-bold text-slate-100">Army Institute of Technology</p>
+                        <div class="leading-relaxed">
+                            <p class="text-mithril/60 font-bold mb-1">Army Institute of Technology</p>
                             <p>Dighi Hills, Pune</p>
                             <p>Maharashtra - 411015</p>
-                        </div>
-                        <div class="rounded-lg overflow-hidden border border-primary/20 mt-4 h-32 relative group">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.0!2d73.8725116!3d18.6069315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c70090000001%3A0x160a20f3d0273495!2sArmy%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1709900000000!5m2!1sen!2sin"
-                                class="w-full h-full border-0 grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
-                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                <a href="https://www.google.com/maps/place/Army+Institute+of+Technology/@18.6069315,73.8725116,17z"
-                                    target="_blank"
-                                    class="pointer-events-auto px-4 py-2 bg-primary text-background-dark rounded-md text-[10px] uppercase font-bold tracking-widest hover:bg-white transition-all shadow-lg">Open
-                                    in Maps</a>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Bottom Copyright -->
-            <div class="pt-10 border-t border-primary/10 text-center">
-                <p class="text-slate-500 text-[10px] uppercase tracking-[0.4em]">
-                    © 2026 AIT Model United Nations. All rights reserved.
-                </p>
+            <div class="relative py-12 border-t border-mithril/10">
+                <div class="text-center text-mithril/20 text-[10px] tracking-[0.4em] uppercase">
+                    © AIT Model United Nations 2026 ✦ Forged in Diplomacy
+                </div>
             </div>
         </div>
     </footer>
+    <!-- END: Footer -->
     </div> <!-- Close scrollytelling content container -->
 
     <script type="module" src="./src/main.js"></script>

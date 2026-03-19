@@ -1,9 +1,6 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initRingLoader } from './ring-loader.js';
-import { ParticleTextEffect } from './particle-text.js';
-import { WaveEffect } from './waves.js';
-import { PixelSnowEffect } from './pixel-snow.js';
 
 // --- FORCE SCROLL TO TOP ON REFRESH ---
 if ('scrollRestoration' in history) {
@@ -47,21 +44,6 @@ function initScrollRevealText() {
 
         const wordSpans = el.querySelectorAll('.sr-word');
 
-        // Container rotation animation
-        gsap.fromTo(el,
-            { transformOrigin: '0% 50%', rotate: 3 },
-            {
-                ease: 'none',
-                rotate: 0,
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top bottom',
-                    end: 'bottom bottom',
-                    scrub: true
-                }
-            }
-        );
-
         // Word opacity reveal
         gsap.fromTo(wordSpans,
             { opacity: 0.1 },
@@ -103,83 +85,6 @@ if (document.readyState === 'loading') {
     initScrollRevealText();
 }
 
-// --- SCROLL VELOCITY STRIP ---
-function initScrollVelocity() {
-    const rows = document.querySelectorAll('.scroll-velocity-row');
-    if (!rows.length) return;
-
-    let lastScrollY = window.pageYOffset;
-    let scrollVelocity = 0;
-    let smoothVelocity = 0;
-
-    window.addEventListener('scroll', () => {
-        const currentScrollY = window.pageYOffset;
-        scrollVelocity = currentScrollY - lastScrollY;
-        lastScrollY = currentScrollY;
-    });
-
-    rows.forEach(row => {
-        const track = row.querySelector('.scroll-velocity-track');
-        if (!track) return;
-
-        const direction = parseFloat(row.dataset.direction) || 1;
-        const baseSpeed = parseFloat(row.dataset.speed) || 80;
-        let position = 0;
-
-        // Triple the content for seamless wrapping
-        const originalHTML = track.innerHTML;
-        track.innerHTML = originalHTML + originalHTML + originalHTML;
-
-        // Measure one copy's width after render
-        let singleWidth = 0;
-        requestAnimationFrame(() => {
-            singleWidth = track.scrollWidth / 3;
-            // Start in the middle copy so we can scroll both directions
-            position = -singleWidth;
-        });
-
-        function animate() {
-            // Smooth the scroll velocity
-            smoothVelocity += (scrollVelocity - smoothVelocity) * 0.05;
-            scrollVelocity *= 0.95;
-
-            const velocityFactor = Math.min(Math.max(smoothVelocity * 0.05, -5), 5);
-
-            // Base movement
-            let moveBy = direction * baseSpeed * (1 / 60);
-            // Add scroll-based boost
-            moveBy += moveBy * Math.abs(velocityFactor);
-            // Apply scroll direction influence
-            if (Math.abs(velocityFactor) > 0.1) {
-                moveBy *= Math.sign(velocityFactor) * Math.sign(direction) > 0 ? 1 : -0.5;
-            }
-
-            position -= moveBy;
-
-            // Seamless wrap using modulo
-            if (singleWidth > 0) {
-                // Keep position cycling within the middle copy
-                if (position > 0) {
-                    position -= singleWidth;
-                } else if (position < -2 * singleWidth) {
-                    position += singleWidth;
-                }
-            }
-
-            track.style.transform = `translateX(${position}px)`;
-            requestAnimationFrame(animate);
-        }
-
-        requestAnimationFrame(animate);
-    });
-}
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initScrollVelocity);
-} else {
-    initScrollVelocity();
-}
-
 // --- MOBILE MENU ---
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const closeMenuBtn = document.getElementById('close-menu-btn');
@@ -196,155 +101,36 @@ closeMenuBtn?.addEventListener('click', toggleMenu);
 mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
 
-// --- SCROLLYTELLING ENGINE ---
-class Scrollytelling {
-    constructor() {
-        this.canvas = document.getElementById('scrolly-bg');
-        this.context = this.canvas?.getContext('2d');
-        this.frameCount = 152;
-        this.images = [];
-        this.currentFrame = 1;
-        this.targetFrame = 1;
-        this.nav = document.getElementById('main-nav');
-        // Cache DOM queries for scroll performance
-        this.revealScrolls = document.querySelectorAll('.reveal-scroll');
-        this.reveals = document.querySelectorAll('.reveal');
-        this.viewHeight = window.innerHeight;
-
-        this.init();
+// --- NAVIGATION UI ---
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('main-nav');
+    if (window.pageYOffset > 50) {
+        nav?.classList.add('scrolled');
+    } else {
+        nav?.classList.remove('scrolled');
     }
-
-    getFramePath(index) {
-        return `/ss12/ezgif-frame-${index.toString().padStart(3, '0')}.png`;
-    }
-
-    async init() {
-        if (!this.canvas) return;
-
-        window.addEventListener('resize', () => this.resize());
-        this.resize();
-
-        // Preload first frame
-        await this.loadImage(1);
-        this.render(this.images[1]);
-
-        // Start animation loop
-        this.animate();
-
-        window.addEventListener('scroll', () => this.onScroll());
-        this.onScroll();
-    }
-
-    resize() {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
-        this.viewHeight = window.innerHeight;
-    }
-
-    loadImage(index) {
-        return new Promise((resolve) => {
-            if (this.images[index]) return resolve(this.images[index]);
-            const img = new Image();
-            img.onload = () => {
-                this.images[index] = img;
-                resolve(img);
-            };
-            img.src = this.getFramePath(index);
-        });
-    }
-
-    prepareFrame(index) {
-        if (index < 1 || index > this.frameCount || this.images[index]) return;
-        const img = new Image();
-        img.src = this.getFramePath(index);
-        img.onload = () => { this.images[index] = img; };
-    }
-
-    onScroll() {
-        const scrollTop = window.pageYOffset;
-        const heroHeight = window.innerHeight;
-        // Increase range to 1.5x hero height for more accurate/controlled scrubbing
-        const scrollFraction = Math.min(1, scrollTop / (heroHeight * 1.5));
-
-        if (scrollTop <= heroHeight * 2) {
-            this.targetFrame = Math.max(1, Math.min(this.frameCount, Math.floor(scrollFraction * (this.frameCount - 1)) + 1));
-
-            // Preload 30 frames ahead and 10 frames behind for better accuracy
-            for (let i = -10; i <= 30; i++) {
-                this.prepareFrame(this.targetFrame + i);
-            }
+    
+    // Section reveal logic
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+            el.classList.add('active');
         }
+    });
 
-        this.updateUI(scrollTop);
-    }
-
-    updateUI(scrollTop) {
-        // Navbar
-        if (scrollTop > 50) {
-            this.nav?.classList.add('scrolled');
+    const revealScrolls = document.querySelectorAll('.reveal-scroll');
+    revealScrolls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
         } else {
-            this.nav?.classList.remove('scrolled');
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
         }
-
-        // Fade out canvas after initial section
-        if (this.canvas) {
-            const scrollFraction = scrollTop / this.viewHeight;
-            let opacity = 1 - Math.pow(scrollFraction, 2.0);
-            this.canvas.style.opacity = Math.max(0, opacity);
-            this.canvas.style.visibility = opacity <= 0 ? 'hidden' : 'visible';
-        }
-
-        // Section reveal (cached queries)
-        this.revealScrolls.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < this.viewHeight * 0.8) {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            } else {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-            }
-        });
-
-        // Classic Reveal (cached queries)
-        this.reveals.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < this.viewHeight - 80) {
-                el.classList.add('active');
-            }
-        });
-    }
-
-    render(img) {
-        if (!img || !this.context) return;
-        const scale = Math.max(this.canvas.width / img.width, this.canvas.height / img.height);
-        const x = (this.canvas.width / 2) - (img.width / 2) * scale;
-        const y = (this.canvas.height / 2) - (img.height / 2) * scale;
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.context.drawImage(img, x, y, img.width * scale, img.height * scale);
-    }
-
-    animate() {
-        const lerpFactor = 0.25; 
-        this.currentFrame += (this.targetFrame - this.currentFrame) * lerpFactor;
-
-        // Optimization: only render if canvas is somewhat visible
-        const scrollTop = window.pageYOffset;
-        if (scrollTop < this.viewHeight * 2.5) {
-            const frameToRender = Math.round(this.currentFrame);
-            const img = this.images[frameToRender];
-
-            if (img && img.complete) {
-                this.render(img);
-            }
-        }
-
-        requestAnimationFrame(() => this.animate());
-    }
-}
-
-// Start Scrollytelling
-new Scrollytelling();
+    });
+});
 
 // Smooth Anchors
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -362,26 +148,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // --- LAZY-LOAD BACKGROUND VIDEOS ---
-// Only play videos when they are actually visible on screen to save CPU/Memory
 const initLazyVideos = () => {
     const lazyVideos = document.querySelectorAll('.lazy-video');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
-                // Video is visible, start playback
                 if (video.paused) {
                     video.play().catch(err => console.log('Auto-play prevented:', err));
                 }
             } else {
-                // Video is offscreen, pause it
                 if (!video.paused) {
                     video.pause();
                 }
             }
         });
     }, {
-        rootMargin: '100px 0px 100px 0px' // Start loading/playing slightly before it entering view
+        rootMargin: '100px 0px 100px 0px'
     });
 
     lazyVideos.forEach(video => {
@@ -390,10 +173,10 @@ const initLazyVideos = () => {
 };
 
 document.addEventListener('DOMContentLoaded', initLazyVideos);
+
 // ===== CONTRIBUTIONS CAROUSEL =====
 let currentContribSlide = 0;
 const contribTrack = document.getElementById('contrib-track');
-const contribDots = document.querySelectorAll('#contrib-dots button');
 
 window.moveContribCarousel = function (direction) {
     const cards = document.querySelectorAll('.contrib-card');
@@ -438,51 +221,28 @@ function updateContribCarousel() {
         });
     });
 
-    // Close on Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') lightbox.classList.remove('active');
     });
 })();
 
-// --- INITIALIZE WELCOME PARTICLES ---
-const particleCanvas = document.getElementById('particle-canvas');
-if (particleCanvas) {
-    new ParticleTextEffect(particleCanvas, ["WELCOME TO", "AIT-MUN"]);
-}
-
-// --- INITIALIZE ABOUT SNOW ---
-const aboutSnow = document.getElementById('about-snow');
-if (aboutSnow) {
-    new PixelSnowEffect(aboutSnow, {
-        color: "#ffffff",
-        flakeSize: 0.01,
-        minFlakeSize: 1.25,
-        pixelResolution: 200,
-        speed: 1.25,
-        density: 0.3,
-        direction: 125,
-        brightness: 1,
-        depthFade: 8,
-        farPlane: 20,
-        gamma: 0.4545,
-        variant: "square"
+// --- GALLERY IMAGE OPTIMIZATION ---
+function initGalleryOptimization() {
+    const galleryImgs = document.querySelectorAll('.gallery-img');
+    
+    galleryImgs.forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', () => {
+                img.classList.add('loaded');
+            });
+        }
     });
 }
 
-// --- INITIALIZE GALLERY WAVES ---
-const galleryWaves = document.getElementById('gallery-waves');
-if (galleryWaves) {
-    new WaveEffect(galleryWaves, {
-        lineColor: "#ffffff",
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
-        waveSpeedX: 0.0125,
-        waveSpeedY: 0.01,
-        waveAmpX: 40,
-        waveAmpY: 20,
-        friction: 0.9,
-        tension: 0.01,
-        maxCursorMove: 120,
-        xGap: 12,
-        yGap: 36
-    });
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGalleryOptimization);
+} else {
+    initGalleryOptimization();
 }

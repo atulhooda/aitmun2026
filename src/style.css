@@ -1,13 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --gold-primary: #d4af37;
+  --gold-bright: #f9e498;
+  --gold-deep: #7a5a2a;
+  --gold-glow: rgba(212, 175, 55, 0.4);
+  --cinematic-shadow: 0 0 30px rgba(212, 175, 53, 0.2);
+}
+
 @layer base {
   body {
-    @apply bg-black text-slate-900 dark:text-slate-100 antialiased font-body;
+    background-color: #030508;
+    color: #f1f5f9;
+    overflow-x: hidden;
+    /* Cinematic Golden Hour Overlay */
+    background-image: 
+      radial-gradient(circle at 50% -20%, rgba(212, 175, 53, 0.15) 0%, transparent 60%),
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+      url("/assets/4.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    @apply antialiased font-serif-body;
   }
 
   section {
@@ -17,7 +37,8 @@
 
 @layer components {
   .glass-nav {
-    @apply transition-all duration-500 border-b border-transparent bg-background-dark/60 backdrop-blur-md py-0;
+    @apply transition-all duration-500 border-b border-white/5 bg-black/40 backdrop-blur-xl py-0;
+    box-shadow: inset 0 1px 1px rgba(212, 175, 53, 0.1);
   }
 
   .glass-nav.scrolled {
@@ -33,10 +54,16 @@
   }
 
   .gold-shimmer {
-    background: linear-gradient(45deg, #d4af35 0%, #f9e498 50%, #d4af35 100%);
-    background-size: 200% auto;
-    box-shadow: 0 0 20px rgba(212, 175, 53, 0.4);
-    @apply transition-all duration-300;
+    background: linear-gradient(135deg, #d4af35 0%, #f9e498 45%, #ffffff 50%, #f9e498 55%, #d4af35 100%);
+    background-size: 300% auto;
+    box-shadow: 0 0 25px rgba(212, 175, 53, 0.5);
+    @apply transition-all duration-700;
+    animation: goldSweep 4s linear infinite;
+  }
+
+  @keyframes goldSweep {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
   }
 
   .gold-shimmer:hover {
@@ -51,22 +78,117 @@
   }
 
   .gold-border {
-    @apply border border-primary/30 hover:border-primary/60 transition-all bg-black/40;
+    @apply border border-primary/30 hover:border-primary/60 transition-all bg-black/40 backdrop-blur-md;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(212, 175, 53, 0.1);
+  }
+
+  .gold-border-intense {
+    @apply border border-primary/60 bg-black/60 backdrop-blur-xl;
+    box-shadow: 0 0 30px rgba(212, 175, 53, 0.2);
+    border-radius: 16px;
   }
 
   .text-glow {
-    @apply px-4 py-2 rounded-sm inline-block my-1 border-l-4 border-primary/80;
+    @apply px-4 py-2 inline-block my-1 border-l-4 border-primary/80;
+    text-shadow: 0 0 15px rgba(212, 175, 53, 0.6);
+  }
+
+  .cinematic-title {
+    @apply font-serif-title uppercase tracking-[0.2em];
+    background: linear-gradient(to bottom, #f9e498, #d4af37, #7a5a2a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 53, 0.3));
   }
 
   .p-glow {
-    @apply bg-background-dark/80 p-6 rounded-xl leading-relaxed border border-white/5;
+    @apply bg-black p-6 border border-primary/20;
+    border-radius: 8px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
   }
 
   .glowing-node {
     box-shadow: 0 0 15px #d4af35;
   }
+
+  /* 212 Theme Components */
+  .border-frame {
+    position: relative;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .corner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKc/90ABAAFAAeAQEBAAAAAAAAAAAAAAAA");
+    background-size: 400%;
+    pointer-events: none;
+    z-index: 20;
+    opacity: 0.9;
+  }
+
+  /* Fallback or specific base64 could be longer, using a placeholder/shortened for now if needed, 
+     but standard practice is to include it if it's the theme's core. 
+     I'll use the one from code.html. */
+
+  .corner-tl { top: -2px; left: -2px; background-position: 10% 10%; }
+  .corner-tr { top: -2px; right: -2px; background-position: 90% 10%; }
+  .corner-bl { bottom: -2px; left: -2px; background-position: 10% 90%; }
+  .corner-br { bottom: -2px; right: -2px; background-position: 90% 90%; }
+
+  .vine-divider {
+    height: 40px;
+    background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKc/90ABAAFAAeAQEBAAAAAAAAAAAAAAAA");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 2rem 0;
+    opacity: 0.6;
+  }
+
+  .page-border {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 12px solid transparent;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.15;
+    /* Placeholder for border-image if needed, or simple gold border */
+    border-image: linear-gradient(to bottom right, #d4af37, #030508, #d4af37) 1;
+  }
+
+  .text-glow-luxury {
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5), 0 0 40px rgba(212, 175, 55, 0.2);
+  }
+
+  .hero-gradient-luxury {
+    background: linear-gradient(to bottom, transparent, rgba(3, 5, 8, 0.2) 30%, rgba(3, 5, 8, 0.7) 60%, #030508);
+  }
+
+  .golden-border-v2 {
+    position: relative;
+    padding: 2px;
+    background: linear-gradient(45deg, #d4af37, transparent, #f9e498);
+    border-radius: 12px;
+  }
+
+  .golden-border-v2::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: #030508;
+    border-radius: 11px;
+    z-index: -1;
+  }
 }
+
+.font-title { font-family: 'Cinzel', serif; }
+.font-body { font-family: 'Cormorant Garamond', serif; }
 
 .reveal {
   opacity: 0;
@@ -79,70 +201,11 @@
   transform: translateY(0);
 }
 
-/* Committee Card Glow Effect */
-.committee-glow-card {
-  @apply transition-all duration-500 border border-white/5;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.committee-glow-card:hover {
-  @apply -translate-y-3 border-primary/40;
-  box-shadow: 0 0 45px rgba(212, 175, 53, 0.35);
-}
-
-.committee-glow-card .glow-overlay {
-  @apply absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none;
-  background: radial-gradient(circle at center, rgba(212, 175, 53, 0.15) 0%, transparent 70%);
-}
-
-.font-glow-black {
-  color: #000;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(212, 175, 53, 0.4);
-}
-
-.about-text-glow {
-  color: #000 !important;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 25px rgba(255, 255, 255, 0.9), 0 0 35px rgba(255, 255, 255, 0.7);
-  font-weight: 800;
-}
-
-.font-shiny-black {
-  color: #000;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 2px 2px 4px rgba(212, 175, 53, 0.3);
-  position: relative;
-  display: inline-block;
-}
-
-.font-shiny-black::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
-  transform: skewX(-25deg);
-  transition: 0.75s;
-  pointer-events: none;
-}
-
-.font-shiny-black:hover::after {
-  left: 150%;
-}
+/* Removed unused glow effects as per theme request */
 
 /* Animated Gradient Text */
 .gradient-text-animated {
-  background: linear-gradient(to right, #ffffff, #eeff05, #000000, #ffffff);
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientShift 8s ease infinite alternate;
+  color: #d4af35;
 }
 
 @keyframes gradientShift {
@@ -409,7 +472,18 @@
   display: block;
 }
 
-.collage-item:hover img {
+.gallery-img {
+  max-width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out, transform 0.6s ease !important;
+}
+
+.gallery-img.loaded {
+  opacity: 1;
+}
+
+.collage-item:hover .gallery-img {
   transform: scale(1.08);
 }
 
@@ -424,7 +498,7 @@
 }
 
 .collage-item:hover .collage-overlay {
-  opacity: 0.4;
+  opacity: 0.2;
 }
 
 /* Lightbox */

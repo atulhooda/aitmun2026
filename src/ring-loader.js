@@ -8,14 +8,14 @@ function makeInscriptionTexture() {
     c.width = 2048; c.height = 128;
     const ctx = c.getContext('2d');
     ctx.clearRect(0, 0, 2048, 128);
-    ctx.font = 'italic bold 38px serif';
+    ctx.font = 'italic 700 42px "Cinzel", serif';
     ctx.textBaseline = 'middle';
-    ctx.shadowColor = '#ff4400'; ctx.shadowBlur = 28;
-    ctx.fillStyle = '#cc1100';
+    ctx.shadowColor = '#d4af37'; ctx.shadowBlur = 24;
+    ctx.fillStyle = '#f1f5f9'; // Mithril text
     const tw = ctx.measureText(INSCRIPTION).width;
     for (let x = 0; x < 2048 + tw; x += tw) ctx.fillText(INSCRIPTION, x, 64);
-    ctx.shadowBlur = 8;
-    ctx.fillStyle = '#ffaa55';
+    ctx.shadowBlur = 10;
+    ctx.fillStyle = '#d4af37'; // Gold Leaf glow
     for (let x = 0; x < 2048 + tw; x += tw) ctx.fillText(INSCRIPTION, x, 64);
     const tex = new THREE.CanvasTexture(c);
     tex.wrapS = THREE.RepeatWrapping;
@@ -36,10 +36,10 @@ function makeCircleSprite(size, inner, outer, color0, color1) {
 function makeEmberTexture() {
     const c = document.createElement('canvas'); c.width = c.height = 32;
     const g = c.getContext('2d').createRadialGradient(16, 16, 0, 16, 16, 16);
-    g.addColorStop(0, 'rgba(255,255,200,1)');
-    g.addColorStop(0.2, 'rgba(255,180,40,0.9)');
-    g.addColorStop(0.7, 'rgba(255,60,0,0.4)');
-    g.addColorStop(1, 'rgba(255,30,0,0)');
+    g.addColorStop(0, 'rgba(255,255,255,1)');
+    g.addColorStop(0.2, 'rgba(212,175,55,0.9)');
+    g.addColorStop(0.7, 'rgba(10,25,47,0.4)');
+    g.addColorStop(1, 'rgba(10,25,47,0)');
     c.getContext('2d').fillStyle = g;
     c.getContext('2d').fillRect(0, 0, 32, 32);
     return new THREE.CanvasTexture(c);
@@ -78,9 +78,9 @@ export function initRingLoader(mountId, loaderId) {
     const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
     scene.environment = envTex;
 
-    scene.add(new THREE.AmbientLight(0x180c00, 3));
-    const fire = new THREE.PointLight(0xff4400, 6, 14);
-    fire.position.set(0, -2.0, 0.8);
+    scene.add(new THREE.AmbientLight(0x0a192f, 2.5)); // Deep Blue Ambient
+    const fire = new THREE.PointLight(0xd4af37, 8, 15); // Gold Point Light
+    fire.position.set(0, -2.0, 1.0);
     scene.add(fire);
 
     const ringGroup = new THREE.Group();
@@ -90,12 +90,12 @@ export function initRingLoader(mountId, loaderId) {
 
     const torusGeo = new THREE.TorusGeometry(1.5, 0.3, 64, 200);
     const torusMat = new THREE.MeshStandardMaterial({
-        color: 0xD4920A,
-        metalness: 0.9,
-        roughness: 0.2,
-        emissive: 0x2a1200,
-        emissiveIntensity: 0.6,
-        envMapIntensity: 1.4,
+        color: 0xd4af37, // Gold Leaf
+        metalness: 1.0,
+        roughness: 0.15,
+        emissive: 0x0a192f, // Deep Blue Emissive
+        emissiveIntensity: 0.4,
+        envMapIntensity: 2.0,
     });
     const torusMesh = new THREE.Mesh(torusGeo, torusMat);
     ringGroup.add(torusMesh);
@@ -111,10 +111,10 @@ export function initRingLoader(mountId, loaderId) {
     const inscMesh = new THREE.Mesh(inscGeo, inscMat);
     ringGroup.add(inscMesh);
 
-    const glowTex = makeCircleSprite(512, 0, 256, 'rgba(255,120,0,0.08)', 'rgba(0,0,0,0)');
+    const glowTex = makeCircleSprite(512, 0, 256, 'rgba(212,175,55,0.06)', 'rgba(0,0,0,0)');
     const glowMat = new THREE.SpriteMaterial({ map: glowTex, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false });
     const glow = new THREE.Sprite(glowMat);
-    glow.scale.set(4.5, 4.5, 1);
+    glow.scale.set(6, 6, 1);
     scene.add(glow);
 
     const N = 80;
@@ -132,7 +132,7 @@ export function initRingLoader(mountId, loaderId) {
     const emGeo = new THREE.BufferGeometry();
     emGeo.setAttribute('position', new THREE.BufferAttribute(emPos, 3));
     const emTex = makeEmberTexture();
-    const emMat = new THREE.PointsMaterial({ map: emTex, size: 0.06, sizeAttenuation: true, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, color: 0xff9900 });
+    const emMat = new THREE.PointsMaterial({ map: emTex, size: 0.05, sizeAttenuation: true, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, color: 0xd4af37 }); // Gold Embers
     const emPoints = new THREE.Points(emGeo, emMat);
     scene.add(emPoints);
 

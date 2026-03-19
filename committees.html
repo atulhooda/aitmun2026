@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Committees | AIT MUN 2026</title>
     <link rel="stylesheet" href="./src/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="/assets/4.png" fetchpriority="high">
     <style>
         :root {
-            --ait-blue: #1b365d;
-            --ait-slate: #1e293b;
+            --ait-blue: #0a192f;
+            --ait-slate: #030508;
             --ait-gold: #d4af37;
         }
 
@@ -17,18 +19,19 @@
             display: flex;
             flex-direction: column;
             background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(20px);
-            border-radius: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 53, 0.3);
             overflow: hidden;
-            transition: all 0.5s ease;
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             height: 100%;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
         }
 
         .committee-card:hover {
-            border-color: var(--ait-gold);
-            transform: translateY(-5px);
+            border-color: #f9e498;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(212, 175, 53, 0.15);
         }
 
         .blue-emblem-box {
@@ -61,21 +64,19 @@
         }
 
         .card-desc {
-            color: #cbd5e1;
+            color: #f1f5f9;
             font-size: 15px;
             line-height: 1.625;
-            font-family: sans-serif;
+            font-family: 'Cormorant Garamond', serif;
+            opacity: 0.7;
         }
 
         .section-dark {
             min-height: 100vh;
-            padding: 4rem 1.5rem;
+            padding: 8rem 1.5rem;
             position: relative;
             overflow: hidden;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-color: transparent;
         }
 
         .header-ait {
@@ -84,15 +85,16 @@
             margin-bottom: 1rem;
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: -0.05em;
-            background: linear-gradient(to bottom, #fff, #d4af37);
+            letter-spacing: 0.2em;
+            background: linear-gradient(to bottom, #f9e498, #d4af37, #7a5a2a);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Cinzel', serif;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 53, 0.3));
         }
 
         @media (min-width: 768px) {
-            .header-ait { font-size: 3.75rem; }
+            .header-ait { font-size: 4rem; }
         }
 
         .header-ait-line {
@@ -103,13 +105,14 @@
         }
 
         .header-ait-desc {
-            color: #94a3b8;
+            color: #f1f5f9;
             max-width: 42rem;
             margin: 0 auto 5rem;
             text-align: center;
-            font-family: sans-serif;
-            font-size: 1.125rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
             line-height: 1.625;
+            opacity: 0.6;
         }
 
         .glass-nav-committees {
@@ -129,7 +132,7 @@
             font-weight: 700;
             letter-spacing: -0.05em;
             color: white;
-            font-family: sans-serif;
+            font-family: 'Noto Serif', serif;
         }
         
         .reveal {
@@ -145,13 +148,14 @@
     </style>
 </head>
 
-<body class="bg-black text-slate-100 antialiased font-body min-h-screen">
+<body class="bg-midnight text-mithril antialiased font-serif-body min-h-screen overflow-x-hidden">
+    <div class="page-border"></div>
     <!-- Ring-loader overlay -->
     <div id="ring-loader"
         class="fixed inset-0 z-[9999] bg-black flex items-center justify-center transition-opacity duration-1000 opacity-100">
         <div id="ring-mount" class="absolute inset-0 w-full h-full"></div>
         <div class="r3d-text-wrap" style="position: relative; z-index: 100; text-align: center;">
-            <span class="r3d-verse" style="display: block; color: #d4af37; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase;">AIT MUN 2026</span>
+            <span class="r3d-verse" style="display: block; color: #d4af35; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase;">AIT MUN 2026</span>
             <span class="r3d-subtitle" style="display: block; color: rgba(255,255,255,0.6); font-size: 10px; text-transform: uppercase; margin-top: 10px;">Committee Insights</span>
         </div>
     </div>
@@ -163,19 +167,19 @@
     <nav class="glass-nav-committees" id="main-nav">
         <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
             <a href="/" class="flex items-center gap-3 group">
-                <img src="/assets/logo.png" alt="AIT MUN Logo" class="h-9 w-auto">
+                <img src="/assets/logo.png" alt="AIT MUN Logo" class="h-9 w-auto" fetchpriority="high">
                 <span class="logo-text-ait">AIT <span class="text-primary italic">MUN</span></span>
             </a>
             <div class="hidden lg:flex items-center gap-8">
-                <a href="/" class="text-[13px] font-bold uppercase tracking-wider text-slate-300 hover:text-primary transition-colors font-sans">Home</a>
-                <a href="/index.html#about" class="text-[13px] font-bold uppercase tracking-wider text-slate-300 hover:text-primary transition-colors font-sans">About</a>
-                <a href="/committees.html" class="text-[13px] font-bold uppercase tracking-wider text-primary font-sans">Committees</a>
-                <a href="/index.html#sponsors" class="text-[13px] font-bold uppercase tracking-wider text-slate-300 hover:text-primary transition-colors font-sans">Sponsors</a>
-                <a href="/index.html#gallery" class="text-[13px] font-bold uppercase tracking-wider text-slate-300 hover:text-primary transition-colors font-sans">Gallery</a>
-                <a href="/secretariat.html" class="text-[13px] font-bold uppercase tracking-wider text-slate-300 hover:text-primary transition-colors font-sans">Team</a>
-                <a href="/index.html#faq" class="text-[13px] font-bold uppercase tracking-wider text-slate-300 hover:text-primary transition-colors font-sans">FAQ</a>
+                <a href="/" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">Home</a>
+                <a href="/index.html#about" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">Legend</a>
+                <a href="/committees.html" class="text-[13px] font-bold uppercase tracking-wider text-gold-leaf font-serif-title">Councils</a>
+                <a href="/index.html#sponsors" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">Proprietors</a>
+                <a href="/index.html#gallery" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">Chronicles</a>
+                <a href="/secretariat.html" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">High Table</a>
+                <a href="/index.html#faq" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">FAQ</a>
                 <button onclick="window.open('https://linktr.ee/AITMUN2026?utm_source=ig&utm_medium=social&utm_content=link_in_bio', '_blank')" 
-                    class="px-5 py-2 bg-primary text-black rounded font-black text-[12px] uppercase tracking-tighter hover:bg-white transition-all shadow-lg shadow-primary/20 font-sans">Register Now</button>
+                    class="px-5 py-2 bg-primary text-black rounded font-black text-[12px] uppercase tracking-widest hover:bg-white transition-all shadow-lg shadow-primary/20 font-serif-title">Enlist Now</button>
             </div>
             <button class="lg:hidden text-primary" id="mobile-menu-btn">
                 <span class="material-symbols-outlined text-3xl">menu</span>
@@ -183,9 +187,15 @@
         </div>
     </nav>
 
-    <main class="section-dark" style="background-image: url('/assets/4.png');">
-        <div class="absolute inset-0 bg-black/75 z-0"></div>
-        <div class="max-w-7xl mx-auto px-6 relative z-10 pt-10">
+    <main class="section-dark">
+        <div class="border-frame max-w-7xl mx-auto p-4 md:p-12 relative z-10">
+            <!-- Luxury Corners -->
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+
+            <div class="relative z-10">
             <!-- Section Header -->
             <div class="reveal">
                 <h2 class="header-ait">Our Committees</h2>
@@ -201,12 +211,13 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- CCC -->
-                <article class="committee-card reveal">
+                <article class="committee-card reveal golden-border-v2">
                     <div class="blue-emblem-box">
-                        <img src="/council-of-elrond-logo.png" alt="CCC Emblem" class="w-40 h-40 object-contain">
+                        <div class="absolute inset-0 bg-gradient-to-b from-gold-primary/10 to-transparent"></div>
+                        <img src="/council-of-elrond-logo.png" alt="CCC Emblem" class="w-40 h-40 object-contain relative z-10 brightness-110 contrast-110" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title">Continuous Crisis Committee (CCC)</h3>
+                        <h3 class="card-title cinematic-title" style="font-size: 1.1rem;">Continuous Crisis Committee (CCC)</h3>
                         <p class="card-desc">A fast-paced committee where the situation evolves every moment. Delegates must react to classified crises, form quick alliances, and take strategic decisions that can change the course of events—much like the unexpected trials faced across Middle-earth.</p>
                     </div>
                 </article>
@@ -214,7 +225,7 @@
                 <!-- UN Security Council -->
                 <article class="committee-card reveal">
                     <div class="blue-emblem-box">
-                        <img src="/unsc.png" alt="UNSC Emblem" class="w-40 h-40 object-contain">
+                        <img src="/unsc.png" alt="UNSC Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">United Nations Security Council (UNSC)</h3>
@@ -225,7 +236,7 @@
                 <!-- UN Human Rights Council -->
                 <article class="committee-card reveal">
                     <div class="blue-emblem-box">
-                        <img src="/unhrc.png" alt="UNHRC Emblem" class="w-40 h-40 object-contain">
+                        <img src="/unhrc.png" alt="UNHRC Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">United Nations Human Rights Council (UNHRC)</h3>
@@ -236,7 +247,7 @@
                 <!-- UNODC -->
                 <article class="committee-card reveal">
                     <div class="blue-emblem-box">
-                        <img src="/unodc.png" alt="UNODC Emblem" class="w-40 h-40 object-contain">
+                        <img src="/unodc.png" alt="UNODC Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">United Nations Office on Drugs and Crime (UNODC)</h3>
@@ -247,7 +258,7 @@
                 <!-- All India Political Parties Meet -->
                 <article class="committee-card reveal">
                     <div class="blue-emblem-box">
-                        <img src="/aippm.png" alt="AIPPM Emblem" class="w-40 h-40 object-contain">
+                        <img src="/aippm.png" alt="AIPPM Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">All India Political Parties Meet (AIPPM)</h3>
@@ -258,7 +269,7 @@
                 <!-- International Press -->
                 <article class="committee-card reveal">
                     <div class="blue-emblem-box">
-                        <img src="/ip.png" alt="IP Emblem" class="w-40 h-40 object-contain">
+                        <img src="/ip.png" alt="IP Emblem" class="w-40 h-40 object-contain" loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">International Press (IP)</h3>
@@ -270,94 +281,66 @@
         </div>
     </main>
 
-    <!-- Dedicated Modern Footer -->
-    <footer class="bg-slate-900 pt-20 pb-10 px-6 text-slate-100 border-t border-slate-800 relative z-20">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <!-- Brand & Contact Persons -->
-                <div class="reveal">
-                    <div class="flex items-center gap-3 mb-6">
-                        <img src="/assets/logo.png" alt="AIT MUN Logo" class="h-10 w-auto">
-                        <span class="text-2xl font-bold tracking-tight font-display">AIT <span
-                                class="text-primary italic">MUN</span></span>
+    <footer class="bg-midnight relative pt-32 pb-12 overflow-hidden border-t border-gold-leaf/10" data-purpose="footer">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gold-leaf/50 to-transparent"></div>
+        <div class="vine-divider w-full max-w-6xl mx-auto absolute top-4 left-1/2 -translate-x-1/2 opacity-30"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="mb-8 group">
+                        <a href="/" class="flex items-center gap-3">
+                            <img src="/assets/logo.png" alt="AIT MUN Logo" class="h-12 w-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" decoding="async" fetchpriority="low">
+                            <h3 class="font-serif-title text-2xl text-gold-leaf tracking-[0.2em]">AIT MUN</h3>
+                        </a>
                     </div>
-                    <div class="space-y-4">
-                        <p class="text-primary text-[11px] font-bold uppercase tracking-[0.2em]">For Any Queries
-                            Contact:</p>
-                        <div class="text-slate-400 text-sm space-y-1">
-                            <p>Harshika: <span class="text-slate-100">+91 8954842953</span></p>
-                            <p>Anhad: <span class="text-slate-100">+91 9419298707</span></p>
-                        </div>
-                        <div class="flex gap-4 pt-2">
-                            <a href="#" class="text-primary hover:text-white transition-colors">
-                                <span class="material-symbols-outlined">public</span>
+                    <ul class="social-icons-footer">
+                        <li>
+                            <a href="https://www.linkedin.com/company/aitmun-pune/" target="_blank">
+                                <i class="fab fa-linkedin-in icon"></i>
                             </a>
-                            <a href="#" class="text-primary hover:text-white transition-colors">
-                                <span class="material-symbols-outlined">groups</span>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/ait_mun/" target="_blank">
+                                <i class="fab fa-instagram icon"></i>
                             </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Links -->
-                <div class="reveal delay-100">
-                    <h4 class="text-lg font-bold mb-6 font-display text-primary">Quick Links</h4>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
-                        <li><a href="/index.html#about" class="hover:text-primary transition-colors">About</a></li>
-                        <li><a href="/committees.html"
-                                class="hover:text-primary transition-colors font-bold">Committees</a></li>
-                        <li><a href="/secretariat.html" class="hover:text-primary transition-colors">Team</a></li>
-                        <li><a href="/index.html#faq" class="hover:text-primary transition-colors">FAQ</a></li>
+                        </li>
                     </ul>
                 </div>
-
-                <!-- Committees -->
-                <div class="reveal delay-200">
-                    <h4 class="text-lg font-bold mb-6 font-display text-primary">Committees</h4>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li><a href="/committees.html" class="hover:text-primary transition-colors">CCC</a></li>
-                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNSC</a></li>
-                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNHRC</a></li>
-                        <li><a href="/committees.html" class="hover:text-primary transition-colors">UNODC</a></li>
-                        <li><a href="/committees.html" class="hover:text-primary transition-colors">AIPPM</a></li>
-                        <li><a href="/committees.html" class="hover:text-primary transition-colors">IP</a></li>
+                <div>
+                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-xs tracking-[0.5em] border-b border-mithril/10 pb-4">Chronicles</h4>
+                    <ul class="space-y-4 text-mithril/40 text-sm font-light">
+                        <li><a href="/" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> Home</a></li>
+                        <li><a href="/index.html#about" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> Legend</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> Councils</a></li>
+                        <li><a href="/secretariat.html" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> High Table</a></li>
                     </ul>
                 </div>
-
-                <!-- Contact Us & Map -->
-                <div class="reveal delay-300">
-                    <h4 class="text-lg font-bold mb-6 font-display text-primary">Contact Us</h4>
-                    <div class="space-y-4">
-                        <a href="mailto:aitpunemun@gmail.com"
-                            class="flex items-center gap-2 text-slate-400 hover:text-primary text-sm transition-colors">
+                <div>
+                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-xs tracking-[0.5em] border-b border-mithril/10 pb-4">The Houses</h4>
+                    <ul class="grid grid-cols-2 gap-x-4 gap-y-4 text-mithril/40 text-[11px] font-light">
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">CCC</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">UNSC</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">UNHRC</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">UNODC</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">AIPPM</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">IP</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-xs tracking-[0.5em] border-b border-mithril/10 pb-4">Communication</h4>
+                    <div class="space-y-6 text-mithril/40 text-sm">
+                        <a href="mailto:aitpunemun@gmail.com" class="hover:text-gold-leaf transition-colors flex items-center gap-3">
                             <span class="material-symbols-outlined text-sm">mail</span>
                             aitpunemun@gmail.com
                         </a>
-                        <div class="text-slate-400 text-sm leading-relaxed">
-                            <p class="font-bold text-slate-100">Army Institute of Technology</p>
-                            <p>Dighi Hills, Pune</p>
-                            <p>Maharashtra - 411015</p>
-                        </div>
-                        <div class="rounded-lg overflow-hidden border border-slate-800 mt-4 h-32 relative group">
-                            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80"
-                                alt="Location Map"
-                                class="w-full h-full object-cover grayscale opacity-30 group-hover:opacity-60 transition-all duration-700">
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <a href="https://maps.google.com" target="_blank"
-                                    class="px-4 py-2 bg-primary text-slate-900 rounded-md text-[10px] uppercase font-bold tracking-widest hover:bg-white transition-all shadow-lg">Open
-                                    in Maps</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Bottom Copyright -->
-            <div class="pt-10 border-t border-slate-800 text-center">
-                <p class="text-slate-500 text-[10px] uppercase tracking-[0.4em]">
-                    © 2026 AIT Model United Nations. All rights reserved.
-                </p>
+            <div class="relative py-12 border-t border-mithril/10 text-center">
+                <div class="text-mithril/20 text-[10px] tracking-[0.4em] uppercase">
+                    © AIT Model United Nations 2026 ✦ Forged in Diplomacy
+                </div>
             </div>
         </div>
     </footer>

@@ -11,15 +11,20 @@ export default {
     theme: {
         extend: {
             colors: {
-                "primary": "#d4af35",
-                "background-light": "#f8f7f6",
-                "background-dark": "#12110a",
-                "parchment": "#1a1811",
+                "primary": "#d4af37",
+                "midnight": "#030508",
+                "mithril": "#f1f5f9",
+                "gold-leaf": "#d4af37",
+                "deep-blue": "#0a192f",
+                "background-light": "#f1f5f9",
+                "background-dark": "#030508",
             },
             fontFamily: {
-                "display": ["Montserrat", "sans-serif"],
-                "body": ["Inter", "sans-serif"],
-                "sans": ["Inter", "sans-serif"],
+                "serif-title": ["Cinzel", "serif"],
+                "serif-body": ["Cormorant Garamond", "serif"],
+                "display": ["Cinzel", "serif"],
+                "body": ["Cormorant Garamond", "serif"],
+                "sans": ["Cormorant Garamond", "serif"],
             },
             borderRadius: {
                 "DEFAULT": "0.25rem",
