@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIT Model United Nations 2026 | Global Leadership Summit</title>
+    <meta name="description"
+        content="Join the most prestigious diplomatic simulation. Forge alliances, debate global issues, and lead the future at AIT MUN 2026.">
+    <link rel="stylesheet" href="./src/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="/assets/4.png" fetchpriority="high">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body class="bg-midnight text-mithril antialiased font-serif-body overflow-x-hidden">
+    <!-- 212 Theme Page Border -->
+    <div class="page-border"></div>
+
+    <!-- Ring-loader overlay -->
+    <div id="ring-loader"
+        class="fixed inset-0 z-[9999] bg-black flex items-center justify-center transition-opacity duration-1000 opacity-100">
+        <div id="ring-mount" class="absolute inset-0 w-full h-full"></div>
+        <div class="r3d-text-wrap">
+            <span class="r3d-verse">AIT MUN 2026</span>
+            <span class="r3d-subtitle">Initializing Leadership</span>
+            <div class="r3d-dots">
+                <div class="r3d-dot"></div>
+                <div class="r3d-dot"></div>
+                <div class="r3d-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background removed as per theme request -->
+
+
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-black z-[10000] flex flex-col translate-x-full transition-transform duration-500 lg:hidden w-screen h-screen">
+        <!-- Fixed Header for Close Button -->
+        <div class="flex justify-end p-6 flex-shrink-0">
+            <button class="text-primary hover:rotate-90 transition-transform duration-300" id="close-menu-btn">
+                <span class="material-symbols-outlined text-4xl">close</span>
+            </button>
+        </div>
+        
+        <!-- Scrollable Menu Content -->
+        <div class="flex-1 flex flex-col items-center justify-start gap-6 p-8 pt-0 overflow-y-auto">
+            <a href="/" class="text-xl font-bold text-mithril hover:text-gold-leaf uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2 font-serif-title">Home</a>
+            <a href="#about" class="text-xl font-bold text-mithril hover:text-gold-leaf uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2 font-serif-title">Legend</a>
+            <a href="#committees" class="text-xl font-bold text-mithril hover:text-gold-leaf uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2 font-serif-title">Councils</a>
+            <a href="#gallery" class="text-xl font-bold text-mithril hover:text-gold-leaf uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2 font-serif-title">Chronicles</a>
+
+            <a href="#faq" class="text-xl font-bold text-mithril hover:text-gold-leaf uppercase tracking-[0.2em] mobile-link transition-colors duration-300 py-2 font-serif-title">FAQ</a>
+            
+            <div class="w-full h-px bg-gold-leaf/20 my-4 max-w-[200px] flex-shrink-0"></div>
+            
+            <a href="https://linktr.ee/AITMUN2026?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank"
+                class="gold-shimmer px-10 py-4 rounded-full text-black font-black tracking-widest uppercase text-sm mobile-link shadow-lg flex-shrink-0 mb-12">Register
+                Now</a>
+        </div>
+    </div>
+
+    <div class="relative z-10">
+        <!-- Navigation -->
+        <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="main-nav">
+            <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+                <a href="/" class="flex items-center gap-3 group">
+                    <img src="/assets/logo.png" alt="AIT MUN Logo" class="h-8 md:h-10 w-auto" fetchpriority="high">
+                    <span class="text-xl font-bold tracking-tight text-mithril font-serif-title">AIT MUN</span>
+                </a>
+
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="/" class="nav-link-modern font-serif-title text-mithril hover:text-gold-leaf transition-colors">Home</a>
+                    <a href="#about" class="nav-link-modern font-serif-title text-mithril hover:text-gold-leaf transition-colors">About</a>
+                    <a href="/committees.html" class="nav-link-modern font-serif-title text-mithril hover:text-gold-leaf transition-colors">Councils</a>
+                    <a href="#gallery" class="nav-link-modern font-serif-title text-mithril hover:text-gold-leaf transition-colors">Chronicles</a>
+
+                    <a href="#faq" class="nav-link-modern font-serif-title text-mithril hover:text-gold-leaf transition-colors">FAQ</a>
+                    <button onclick="window.open('https://linktr.ee/AITMUN2026?utm_source=ig&utm_medium=social&utm_content=link_in_bio', '_blank')"
+                        class="ml-4 px-4 py-2 bg-primary text-black rounded font-bold text-[13px] hover:bg-white transition-all font-serif-title uppercase tracking-widest btn-enlist-nav">Enlist Now</button>
+                </div>
+
+                <button class="lg:hidden text-primary" id="mobile-menu-btn">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="relative h-screen w-full flex items-center justify-center overflow-hidden"
+            style="background: url('/assets/aa1.png') no-repeat center center; background-size: cover;">
+
+
+            <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+
+
+                <h1 class="text-5xl md:text-7xl lg:text-[6.5rem] font-black leading-[0.9] tracking-tight mb-4 uppercase" style="font-family: 'Cinzel', serif; color: #000; text-shadow: 0 0 15px #d4af37, 0 0 30px rgba(212, 175, 53, 0.4); filter: brightness(1.2);">
+                    AIT<br/>
+                    <span class="italic text-3xl md:text-4xl lg:text-5xl" style="color: #000; font-weight: 700; text-shadow: 0 0 12px #d4af37, 0 0 25px rgba(212, 175, 53, 0.3);">Model United Nations</span>
+                </h1>
+
+                <p class="text-base md:text-lg mb-8" style="color: rgba(240,230,200,0.85); font-family: 'Cormorant Garamond', serif;">Hosted at AIT &nbsp;·&nbsp; 2026</p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+                    <a href="https://linktr.ee/AITMUN2026?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank"
+                       style="display:inline-block; padding: 0.8rem 2.2rem; background: #2d5a27; border: 2px solid #4a7a3d; color: #f9e498; font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;"
+                       onmouseover="this.style.background='#3d7a35'" onmouseout="this.style.background='#2d5a27'">
+                        Delegate Registration
+                    </a>
+                    <a href="#committees"
+                       style="display:inline-block; padding: 0.8rem 2.2rem; background: transparent; border: 2px solid rgba(212,175,53,0.7); color: #f9e498; font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;"
+                       onmouseover="this.style.borderColor='#d4af37'" onmouseout="this.style.borderColor='rgba(212,175,53,0.7)'">
+                        View Committees
+                    </a>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+                <span class="material-symbols-outlined text-3xl" style="color: #d4af37;">expand_more</span>
+            </div>
+        </header>
+
+
+        <section id="about"
+            class="min-h-screen lg:h-screen w-full flex flex-col items-center justify-center py-20 md:py-32 px-6 scroll-mt-20 reveal-scroll transition-all duration-300 relative overflow-hidden">
+            <div class="border-frame max-w-5xl mx-auto p-8 relative">
+                <!-- Luxury Corners -->
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+
+                <div class="relative z-10">
+                    <!-- Centered Header -->
+                    <div class="text-center mb-12 reveal">
+                        <p class="text-xs tracking-[0.5em] uppercase mb-3 font-cinzel" style="color: rgba(212,175,53,0.65);">The Mandate</p>
+                        <h2 class="text-3xl md:text-5xl cinematic-title">About AIT MUN</h2>
+                        <div class="w-16 h-px mx-auto mt-5" style="background: linear-gradient(to right, transparent, #d4af37, transparent);"></div>
+                    </div>
+
+                    <!-- Description Paragraphs with ScrollReveal effect -->
+                    <div class="text-center max-w-4xl mx-auto space-y-12 mb-0 px-4">
+                        <div class="p-6 md:p-8 reveal transition-all duration-500">
+                            <p class="scroll-reveal-text about-text-glow text-lg md:text-2xl leading-relaxed mb-8 md:mb-12">
+                               As shadows lengthen across the corridors of power and the whispers of the world grow louder, the free peoples must convene. AIT Model United Nations 2026 is not merely a simulation — it is a summons to the highest levels of statesmanship.
+                            </p>
+                            <p class="scroll-reveal-text about-text-glow text-lg md:text-2xl leading-relaxed italic pt-8 border-t border-white/10">
+                                Delegates will navigate complex geopolitical landscapes, balancing ancestral claims, strategic alliances, and the looming challenges that define our age. Within these councils, every speech carries weight, every alliance builds strength.
+                                <br><br>
+                                Step into the chamber with conviction. History is written by those who dare to rise when the world needs leaders the most.
+                            </p>
+                            <blockquote class="mt-10 pt-6 border-t border-primary/20">
+                                <p class="text-sm italic" style="color: rgba(212,175,53,0.6);">&ldquo;The world is indeed full of peril, and in it there are many dark places; but still there is much that is fair.&rdquo;</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Vine Divider before Committees -->
+        <div class="vine-divider max-w-4xl mx-auto opacity-40"></div>
+
+        <!-- Committees Grid -->
+        <section id="committees" class="min-h-[85vh] flex flex-col justify-center py-24 px-6 scroll-mt-20 reveal-scroll transition-opacity duration-300 relative overflow-hidden">
+            <div class="border-frame max-w-7xl mx-auto p-4 md:p-12 relative">
+                <!-- Luxury Corners -->
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+
+                <div class="relative z-10">
+                    <div class="text-center mb-12 reveal">
+                        <div class="inline-block">
+                            <h2 class="text-gold-bright text-[10px] font-bold tracking-[0.5em] uppercase mb-2">Deliberations</h2>
+                            <h3 class="text-3xl md:text-5xl cinematic-title italic">
+                                The High Councils
+                            </h3>
+                            <div class="w-16 h-px bg-primary/40 mx-auto mt-6"></div>
+                        </div>
+                    </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 pb-6">
+                    <!-- UNSC -->
+                    <!-- CCC -->
+                    <!-- CCC -->
+                    <div class="group committee-glow-card bg-transparent border border-primary/20 rounded-lg overflow-hidden reveal">
+                        <div class="p-4 pb-6 flex flex-col items-center justify-end h-48 relative overflow-hidden border-b border-primary/20">
+                            <div class="glow-overlay"></div>
+                            <img src="/com/5.png" alt="CCC" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;" loading="lazy" decoding="async">
+                            <h4 class="text-white text-xs font-bold font-serif mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">Continuous Crisis Committee (CCC)</h4>
+                        </div>
+                        <div class="p-6 relative">
+                            <p class="text-slate-300 text-sm leading-relaxed font-medium">A fast-paced committee where the situation evolves every moment. Delegates must react to classified crises, form quick alliances, and take strategic decisions that can change the course of events—much like the unexpected trials faced across Middle-earth.</p>
+                            <div class="mt-6 flex justify-between items-center">
+                                <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Agenda 2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UNSC -->
+                    <div class="group committee-glow-card bg-transparent border border-primary/20 rounded-lg overflow-hidden reveal delay-75">
+                        <div class="p-4 pb-6 flex flex-col items-center justify-end h-48 relative overflow-hidden border-b border-primary/20">
+                            
+                            <div class="glow-overlay"></div>
+                            <img src="/com/2.png" alt="UNSC" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;" loading="lazy" decoding="async">
+                            <h4 class="text-white text-xs font-bold font-serif mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">United Nations Security Council (UNSC)</h4>
+                        </div>
+                        <div class="p-6 relative">
+                            <p class="text-slate-300 text-sm leading-relaxed font-medium">The council responsible for maintaining global peace and security. Delegates will address the escalating Middle East tensions involving the US, Israel, and Iran, debating proxy warfare and retaliatory strikes while striving to prevent further conflict.</p>
+                            <div class="mt-6 flex justify-between items-center">
+                                <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Agenda 2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UNHRC -->
+                    <div class="group committee-glow-card bg-transparent border border-primary/20 rounded-lg overflow-hidden reveal delay-150">
+                        <div class="p-4 pb-6 flex flex-col items-center justify-end h-48 relative overflow-hidden border-b border-primary/20">
+                            
+                            <div class="glow-overlay"></div>
+                            <img src="/com/1.png" alt="UNHRC" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;" loading="lazy" decoding="async">
+                            <h4 class="text-white text-xs font-bold font-serif mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">United Nations Human Rights Council (UNHRC)</h4>
+                        </div>
+                        <div class="p-6 relative">
+                            <p class="text-slate-300 text-sm leading-relaxed font-medium">A forum dedicated to protecting fundamental human rights. Delegates will examine how emerging military technologies and artificial intelligence impact privacy, freedom, and dignity in an increasingly digital world.</p>
+                            <div class="mt-6 flex justify-between items-center">
+                                <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Agenda 2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UNODC -->
+                    <div class="group committee-glow-card bg-transparent border border-primary/20 rounded-lg overflow-hidden reveal delay-225">
+                        <div class="p-4 pb-6 flex flex-col items-center justify-end h-48 relative overflow-hidden border-b border-primary/20">
+                            
+                            <div class="glow-overlay"></div>
+                            <img src="/com/2.png" alt="UNODC" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;" loading="lazy" decoding="async">
+                            <h4 class="text-white text-xs font-bold font-serif mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">United Nations Office on Drugs and Crime (UNODC)</h4>
+                        </div>
+                        <div class="p-6 relative">
+                            <p class="text-slate-300 text-sm leading-relaxed font-medium">This committee tackles organized crime, narcotics trafficking, and international criminal networks. Delegates will discuss the impact of external interference on crime networks, with a special focus on regions such as Venezuela and Iran.</p>
+                            <div class="mt-6 flex justify-between items-center">
+                                <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Agenda 2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AIPPM -->
+                    <div class="group committee-glow-card bg-transparent border border-primary/20 rounded-lg overflow-hidden reveal delay-300">
+                        <div class="p-4 pb-6 flex flex-col items-center justify-end h-48 relative overflow-hidden border-b border-primary/20">
+                            
+                            <div class="glow-overlay"></div>
+                            <img src="/com/4.png" alt="AIPPM" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;" loading="lazy" decoding="async">
+                            <h4 class="text-white text-xs font-bold font-serif mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">All India Political Parties Meet (AIPPM)</h4>
+                        </div>
+                        <div class="p-6 relative">
+                            <p class="text-slate-300 text-sm leading-relaxed font-medium">A dynamic national committee where Indian political leaders debate pressing domestic issues. Delegates will deliberate on the regulation of social media platforms, addressing misinformation, surveillance concerns, and constitutional free speech safeguards.</p>
+                            <div class="mt-6 flex justify-between items-center">
+                                <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Agenda 2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IP -->
+                    <div class="group committee-glow-card bg-transparent border border-primary/20 rounded-lg overflow-hidden reveal delay-375">
+                        <div class="p-4 pb-6 flex flex-col items-center justify-end h-48 relative overflow-hidden border-b border-primary/20">
+                            
+                            <div class="glow-overlay"></div>
+                            <img src="/com/3.png" alt="IP" class="w-20 h-20 object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-125 contrast-125" style="mix-blend-mode: screen;" loading="lazy" decoding="async">
+                            <h4 class="text-white text-xs font-bold font-serif mt-2 relative z-10 text-center uppercase tracking-wider leading-tight">International Press (IP)</h4>
+                        </div>
+                        <div class="p-6 relative">
+                            <p class="text-slate-300 text-sm leading-relaxed font-medium">The storytellers of the conference. Journalists and photographers will document debates, expose controversies, and shape narratives, ensuring transparency while capturing every defining moment of the council.</p>
+                            <div class="mt-6 flex justify-between items-center">
+                                <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Agenda 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+        <!-- Vine Divider before Gallery -->
+        <div class="vine-divider max-w-4xl mx-auto opacity-30"></div>
+
+        <!-- Photo Collage Gallery Section -->
+        <section id="gallery" class="min-h-screen lg:h-screen w-full flex flex-col items-center justify-center py-20 md:py-24 px-6 scroll-mt-20 relative overflow-hidden">
+            <div class="border-frame max-w-7xl mx-auto p-4 md:p-8 relative">
+                <!-- Luxury Corners -->
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+
+                <div class="relative z-10">
+                    <div class="text-center mb-16 reveal">
+                        <div class="inline-block">
+                            <h2 class="text-gold-bright text-[10px] font-bold tracking-[0.5em] uppercase mb-2">Chronicles</h2>
+                            <h3 class="text-3xl md:text-5xl cinematic-title italic">
+                                The Archives
+                            </h3>
+                            <div class="w-16 h-px bg-primary/40 mx-auto mt-6"></div>
+                        </div>
+                    </div>
+
+            <div class="collage-grid max-w-7xl mx-auto">
+                <!-- Row 1-2 -->
+                <div class="collage-item collage-tall reveal">
+                    <img src="/col/g1 (1).webp" alt="AIT MUN Memory 1" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item reveal">
+                    <img src="/col/g2 (1).webp" alt="AIT MUN Memory 2" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item reveal">
+                    <img src="/col/g3 (1).webp" alt="AIT MUN Memory 3" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item reveal">
+                    <img src="/col/janu (1).webp" alt="AIT MUN Memory" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item collage-wide reveal">
+                    <img src="/col/g4 (1).webp" alt="AIT MUN Memory 4" loading="lazy" decoding="async" fetchpriority="low" width="600" height="400" class="gallery-img">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item reveal">
+                    <img src="/col/g6 (1).webp" alt="AIT MUN Memory 6" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
+                    <div class="collage-overlay"></div>
+                </div>
+                <!-- Row 3-4 -->
+                <div class="collage-item reveal">
+                    <img src="/col/g5 (1).webp" alt="AIT MUN Memory 5" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item collage-wide reveal">
+                    <img src="/col/g8 (1).webp" alt="AIT MUN Memory 8" loading="lazy" decoding="async" fetchpriority="low" width="600" height="400" class="gallery-img">
+                    <div class="collage-overlay"></div>
+                </div>
+                <div class="collage-item reveal">
+                    <img src="/col/g7 (1).webp" alt="AIT MUN Memory 7" loading="lazy" decoding="async" fetchpriority="low" width="400" height="600" class="gallery-img">
+                    <div class="collage-overlay"></div>
+                </div>
+
+            </div> <!-- End of max-w-7xl mx-auto -->
+            </div> <!-- End of border-frame -->
+        </section>
+
+        <!-- Vine Divider before Sponsors -->
+        <div class="vine-divider max-w-5xl mx-auto opacity-20"></div>
+
+        <!-- Sponsors Section -->
+        <section id="sponsors" class="min-h-screen lg:h-screen w-full flex flex-col items-center justify-center py-20 md:py-24 px-6 reveal-scroll transition-all duration-300 relative overflow-hidden">
+            <div class="border-frame max-w-7xl mx-auto p-4 md:p-12 relative">
+                <!-- Luxury Corners -->
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+                
+                <div class="max-w-7xl mx-auto relative z-10">
+                    <div class="text-center mb-12 reveal">
+                        <div class="inline-block max-w-xl px-4">
+                            <h2 class="text-gold-bright text-[10px] font-bold tracking-[0.5em] uppercase mb-2">Proprietors</h2>
+                            <h3 class="text-3xl md:text-5xl cinematic-title italic mb-6">
+                                Grand Patrons
+                            </h3>
+                            <p class="text-mithril/60 text-lg md:text-xl font-serif-body italic tracking-widest reveal">
+                                Guardians of the Summit
+                            </p>
+                        </div>
+                    </div>
+
+            <!-- Tiered Sponsors Grid -->
+            <div class="space-y-8">
+                <!-- Sponsors will be added here -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Contributions Section -->
+    <section class="min-h-screen lg:h-screen w-full flex flex-col items-center justify-center py-20 md:py-24 px-6 scroll-mt-20 text-slate-100 relative overflow-hidden">
+        <div class="border-frame max-w-5xl mx-auto p-4 md:p-12 relative">
+            <!-- Luxury Corners -->
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+
+            <div class="max-w-4xl mx-auto relative z-10">
+                <div class="text-center mb-8 reveal">
+                    <h2 class="text-gold-bright text-sm font-bold tracking-[0.4em] uppercase mb-4">Gratitude</h2>
+                    <h3 class="text-3xl md:text-5xl cinematic-title italic">
+                        Generous Contributions
+                    </h3>
+                </div>
+
+                <!-- Testimonial Carousel -->
+                <div class="relative" id="contrib-carousel">
+                    <div class="overflow-hidden">
+                        <div class="contrib-track flex transition-transform duration-500 ease-in-out" id="contrib-track">
+                            <!-- Card 1 -->
+                            <div class="contrib-card w-full flex-shrink-0 px-4">
+                                <div
+                                    class="bg-transparent border border-primary/30 rounded-2xl p-4 md:p-6 flex flex-col md:flex-row items-center gap-6 relative shadow-[0_0_30px_rgba(212,175,53,0.2)] transition-all duration-500 hover:shadow-[0_0_50px_rgba(212,175,53,0.3)]">
+                                    <div class="absolute top-6 left-8 text-primary text-4xl opacity-30 font-serif">&#8220;
+                                    </div>
+                                    <div class="flex-shrink-0">
+                                        <div
+                                            class="w-20 h-20 rounded-full border-2 border-primary overflow-hidden bg-primary/10">
+                                            <img src="/col/janu (1).webp" alt="Raveen Janu"
+                                                class="w-full h-full object-cover" loading="lazy" decoding="async" fetchpriority="low">
+                                        </div>
+                                    </div>
+                                    <div class="text-center md:text-left">
+                                        <p class="text-slate-300 text-lg italic leading-relaxed mb-4">
+                                            "Raveen Janu Sir, an alumnus of 2006 batch made a generous contribution of INR
+                                            35K towards organization of AIT MUN 2025"
+                                        </p>
+                                        <h4 class="text-slate-100 font-bold text-2xl font-serif">Raveen Janu</h4>
+                                        <p class="text-primary text-base tracking-wide">Goodwill Sponsor AIT MUN 2025</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dots -->
+                    <div class="flex justify-center gap-3 mt-8" id="contrib-dots">
+                        <button class="w-3 h-3 rounded-full bg-primary transition-all" data-slide="0"></button>
+                    </div>
+
+                    <!-- Nav Buttons -->
+                    <div class="flex justify-center gap-4 mt-6">
+                        <button onclick="moveContribCarousel(-1)"
+                            class="w-12 h-12 rounded-full border border-gold-leaf/30 text-gold-leaf flex items-center justify-center hover:bg-gold-leaf hover:text-black transition-all duration-500 shadow-lg hover:shadow-gold-leaf/20">
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+                        <button onclick="moveContribCarousel(1)"
+                            class="w-12 h-12 rounded-full bg-gold-leaf text-black flex items-center justify-center hover:bg-white transition-all duration-500 shadow-lg shadow-gold-leaf/20">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vine Divider before FAQ -->
+    <div class="vine-divider max-w-4xl mx-auto opacity-20"></div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="min-h-[60vh] flex flex-col justify-center py-24 px-6 scroll-mt-20 relative overflow-hidden">
+        <div class="border-frame max-w-4xl mx-auto p-4 md:p-12 relative">
+            <!-- Luxury Corners -->
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+
+            <div class="max-w-4xl mx-auto relative z-10">
+                <div class="text-center mb-8 reveal">
+                    <h2 class="text-gold-bright text-[10px] font-bold tracking-[0.5em] uppercase mb-2">Inquiries</h2>
+                    <h3 class="text-3xl md:text-5xl cinematic-title italic">
+                        Ancient Riddles
+                    </h3>
+                    <p class="text-mithril/40 font-serif-body max-w-xs mx-auto text-xs font-semibold">Answers sought by the fellowship.</p>
+                    <div class="w-12 h-px bg-primary/30 mx-auto mt-6"></div>
+                </div>
+
+            <div class="space-y-2">
+                <!-- FAQ Item 1 -->
+                <div class="gold-border rounded-xl bg-transparent overflow-hidden reveal">
+                    <button class="w-full p-3 text-left flex justify-between items-center group"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+                        <span
+                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-serif">
+                            What is Model United Nations?
+                        </span>
+                        <span class="material-symbols-outlined text-primary text-sm transition-transform">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-400 font-sans hidden">
+                        Model United Nations (MUN) is an educational simulation of the United Nations where students
+                        learn about diplomacy, international relations, and the UN.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="gold-border rounded-xl bg-transparent overflow-hidden reveal">
+                    <button class="w-full p-3 text-left flex justify-between items-center group"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+                        <span
+                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-serif">
+                            Who can participate in AIT MUN?
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-400 font-sans hidden">
+                        Students from high schools and universities across the nation interested in international
+                        relations and diplomacy are welcome to apply.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="gold-border rounded-xl bg-transparent overflow-hidden reveal">
+                    <button class="w-full p-3 text-left flex justify-between items-center group"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+                        <span
+                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-serif">
+                            How do I register for AIT MUN?
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-400 font-sans hidden">
+                        You can register by clicking the "Register Now" button in the navigation bar or on the home page
+                        and filling out the application form.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="gold-border rounded-xl bg-transparent overflow-hidden reveal">
+                    <button class="w-full p-3 text-left flex justify-between items-center group"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+                        <span
+                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-serif">
+                            What should I prepare before the conference?
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-400 font-sans hidden">
+                        Delegates should research their assigned country's policies, study the committee background
+                        guides, and prepare position papers and speaking notes.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="gold-border rounded-xl bg-transparent overflow-hidden reveal">
+                    <button class="w-full p-3 text-left flex justify-between items-center group"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+                        <span
+                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-serif">
+                            Will accommodation be provided?
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-400 font-sans hidden">
+                        Yes, we provide accommodation for outstation delegates. Details regarding venues and logistics
+                        will be shared with registered delegates via email.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="gold-border rounded-xl bg-transparent overflow-hidden reveal">
+                    <button class="w-full p-3 text-left flex justify-between items-center group"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.material-symbols-outlined').classList.toggle('rotate-180')">
+                        <span
+                            class="text-sm font-bold text-slate-100 group-hover:text-primary transition-colors font-serif">
+                            How can my organization sponsor AIT MUN?
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-400 font-sans hidden">
+                        Organizations interested in sponsorship can reach out to us at <a
+                            href="mailto:aitpunemun@gmail.com" class="text-primary underline">aitpunemun@gmail.com</a>
+                        for partnership opportunities.
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="mt-8 text-center reveal bg-transparent rounded-2xl px-6 py-4 inline-block w-full">
+                <p class="text-slate-500 font-sans mb-2">Still have questions? Feel free to reach out to us.</p>
+                <a href="mailto:aitpunemun@gmail.com"
+                    class="text-primary font-bold text-xl hover:text-white transition-colors font-sans">aitpunemun@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEGIN: Footer -->
+    <footer class="bg-midnight relative pt-32 pb-12 overflow-hidden border-t border-gold-leaf/10" data-purpose="footer">
+        <!-- Decorative Footer Vine Top -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gold-leaf/50 to-transparent"></div>
+        <div class="vine-divider w-full max-w-6xl mx-auto absolute top-4 left-1/2 -translate-x-1/2 opacity-30"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="mb-8 group">
+                        <a href="/" class="flex items-center gap-3">
+                            <img src="/assets/logo.png" alt="AIT MUN Logo" class="h-12 w-auto transition-transform duration-500 group-hover:scale-110" loading="lazy" decoding="async" fetchpriority="low">
+                            <h3 class="font-serif-title text-2xl text-gold-leaf tracking-[0.2em]">AIT MUN</h3>
+                        </a>
+                    </div>
+                    <p class="text-mithril/40 italic text-xl leading-relaxed mb-8">
+                        "The world is changed. I feel it in the water. I feel it in the earth. I smell it in the air."
+                    </p>
+                    <ul class="social-icons-footer">
+                        <li>
+                            <a href="https://www.linkedin.com/company/aitmun-pune/" target="_blank">
+                                <i class="fab fa-linkedin-in icon"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/ait_mun/" target="_blank">
+                                <i class="fab fa-instagram icon"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-base tracking-[0.5em] border-b border-mithril/10 pb-4">Chronicles</h4>
+                    <ul class="space-y-4 text-mithril/40 text-lg font-light">
+                        <li><a href="/" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> Home</a></li>
+                        <li><a href="#about" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> Legend</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> Councils</a></li>
+                        <li><a href="/secretariat.html" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> High Table</a></li>
+                    </ul>
+                </div>
+
+                <!-- Committees -->
+                <div>
+                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-base tracking-[0.5em] border-b border-mithril/10 pb-4">The Houses</h4>
+                    <ul class="grid grid-cols-2 gap-x-4 gap-y-4 text-mithril/40 text-sm font-light">
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">CCC</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">UNSC</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">UNHRC</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">UNODC</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">AIPPM</a></li>
+                        <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">IP</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-base tracking-[0.5em] border-b border-mithril/10 pb-4">Communication</h4>
+                    <div class="space-y-6 text-mithril/40 text-lg">
+                        <a href="mailto:aitpunemun@gmail.com" class="hover:text-gold-leaf transition-colors flex items-center gap-3">
+                            <span class="material-symbols-outlined text-sm">mail</span>
+                            aitpunemun@gmail.com
+                        </a>
+                        <div class="space-y-3 mt-4 text-base">
+                            <p class="flex items-center gap-3"><span class="material-symbols-outlined text-sm">call</span> Harshika: +91 8954842953</p>
+                            <p class="flex items-center gap-3"><span class="material-symbols-outlined text-sm">call</span> Anhad: +91 9419298707</p>
+                        </div>
+                        <div class="leading-relaxed">
+                            <p class="text-mithril/60 font-bold mb-1 text-xl">Army Institute of Technology</p>
+                            <p>Dighi Hills, Pune</p>
+                            <p>Maharashtra - 411015</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative py-12 border-t border-mithril/10">
+                <div class="text-center text-mithril/20 text-sm tracking-[0.4em] uppercase">
+                    © AIT Model United Nations 2026 ✦ Forged in Diplomacy
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: Footer -->
+    </div> <!-- Close scrollytelling content container -->
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration | AIT MUN 2026</title>
+    <link rel="stylesheet" href="./src/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="/assets/4.png" fetchpriority="high">
+</head>
+
+<body class="text-mithril antialiased font-serif-body min-h-screen overflow-x-hidden" style="background-color: #0A0F0A;">
+    <div class="page-border"></div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3 group">
+                <img src="/assets/logo.png" alt="AIT MUN Logo" class="h-8 md:h-10 w-auto" fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-slate-100 font-sans">AIT MUN</span>
+            </a>
+            <div class="hidden lg:flex items-center gap-6">
+                <a href="/" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">Home</a>
+                <a href="/index.html#about" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">Legend</a>
+                <a href="/committees.html" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">Councils</a>
+                <a href="/#sponsors" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">Proprietors</a>
+                <a href="/#gallery" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">Chronicles</a>
+
+                <a href="/#faq" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">FAQ</a>
+                <button onclick="window.open('https://linktr.ee/AITMUN2026?utm_source=ig&utm_medium=social&utm_content=link_in_bio', '_blank')"
+                    class="ml-4 px-4 py-2 bg-primary text-black rounded font-black text-[12px] uppercase tracking-widest hover:bg-white transition-all font-serif-title">Enlist Now</button>
+            </div>
+            <button class="md:hidden text-primary" id="mobile-menu-btn">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 max-w-4xl mx-auto">
+        <div class="border-frame p-8 md:p-16 relative">
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+            
+            <!-- Hero -->
+            <div class="text-center mb-16 reveal relative z-10">
+                <h2 class="text-4xl md:text-5xl cinematic-title mb-6 italic">
+                    The Great Enlistment</h2>
+                <div class="h-px w-24 bg-primary/30 mx-auto mb-8"></div>
+                <p class="text-mithril/60 text-lg leading-relaxed font-serif-body max-w-2xl mx-auto italic">
+                    Secure your scroll for the most awaited High Table of 2026. Join the fellowship of change-makers.
+                </p>
+            </div>
+
+            <!-- Form -->
+            <div class="reveal relative z-10">
+            <form action="#" class="space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Name -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-primary/80">Full Name</label>
+                        <input type="text" placeholder="Your Name"
+                            class="w-full bg-transparent border border-white/10 rounded-xl px-4 py-4 text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-sans">
+                    </div>
+                    <!-- Email -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-primary/80">Email Address</label>
+                        <input type="email" placeholder="example@domain.com"
+                            class="w-full bg-transparent border border-white/10 rounded-xl px-4 py-4 text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-sans">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Institute -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-primary/80">Institution
+                            Name</label>
+                        <input type="text" placeholder="Your University / School"
+                            class="w-full bg-transparent border border-white/10 rounded-xl px-4 py-4 text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-sans">
+                    </div>
+                    <!-- Experience -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-primary/80">MUN
+                            Experience</label>
+                        <select
+                            class="w-full bg-transparent border border-white/10 rounded-xl px-4 py-4 text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none font-sans">
+                            <option>Beginner (0-2 MUNs)</option>
+                            <option>Intermediate (3-6 MUNs)</option>
+                            <option>Veteran (7+ MUNs)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Committee Preference -->
+                <div class="space-y-4">
+                    <label class="text-xs font-bold uppercase tracking-widest text-primary/80">Committee
+                        Preference</label>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <label
+                            class="flex items-center gap-3 p-4 border border-white/10 rounded-2xl cursor-pointer hover:bg-primary/5 transition-colors group">
+                            <input type="radio" name="committee" class="accent-primary">
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-primary">UNGA</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-3 p-4 border border-white/10 rounded-2xl cursor-pointer hover:bg-primary/5 transition-colors group">
+                            <input type="radio" name="committee" class="accent-primary">
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-primary">UNSC</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-3 p-4 border border-white/10 rounded-2xl cursor-pointer hover:bg-primary/5 transition-colors group">
+                            <input type="radio" name="committee" class="accent-primary">
+                            <span class="text-sm font-medium text-slate-300 group-hover:text-primary">UNHRC</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Statement -->
+                <div class="space-y-2">
+                    <label class="text-xs font-bold uppercase tracking-widest text-primary/80">Position
+                        Statement</label>
+                    <textarea rows="4" placeholder="Briefly explain your interest in the selected committee."
+                        class="w-full bg-transparent border border-white/10 rounded-2xl px-4 py-4 text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none font-sans"></textarea>
+                </div>
+
+                <div class="pt-6">
+                    <button type="submit"
+                        class=" gold-shimmer w-full py-5 rounded-2xl text-black font-black tracking-[0.2em] uppercase text-xl shadow-lg hover:bg-white transition-all transform hover:-translate-y-1">
+                        Register Now
+                    </button>
+                    <p class="text-center text-slate-500 text-[10px] mt-6 uppercase tracking-widest font-sans">
+                        By submitting, you agree to the terms and conditions of AIT MUN 2026.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div> <!-- End border-frame -->
+    </main>
+
+    <footer class="bg-midnight relative pt-32 pb-12 overflow-hidden border-t border-gold-leaf/10">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gold-leaf/50 to-transparent"></div>
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex flex-col items-center gap-8">
+                <div class="flex items-center gap-4">
+                    <img src="/assets/logo.png" alt="AIT MUN Logo" class="h-12 w-auto" loading="lazy" decoding="async" fetchpriority="low">
+                    <span class="text-2xl font-serif-title text-gold-leaf tracking-widest">AIT MUN</span>
+                </div>
+                <p class="text-mithril/20 text-[10px] tracking-[0.4em] uppercase">
+                    © AIT Model United Nations 2026 ✦ Forged in Diplomacy
+                </p>
+                <ul class="social-icons-footer">
+                    <li>
+                        <a href="https://www.linkedin.com/company/aitmun-pune/" target="_blank">
+                            <i class="fab fa-linkedin-in icon"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/ait_mun/" target="_blank">
+                            <i class="fab fa-instagram icon"></i>
+                        </a>
+                    </li>
+                </ul>
+                <a href="/" class="text-gold-leaf/60 font-serif-title hover:text-gold-leaf uppercase text-xs tracking-widest transition-colors">Return to Legend</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
