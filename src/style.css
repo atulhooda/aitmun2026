@@ -58,11 +58,18 @@
     transform: translateY(-2px);
   }
 
+  .btn-enlist-nav {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+  }
+
   .btn-enlist-nav:hover {
     text-shadow: none !important;
     background-color: white !important;
     color: black !important;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    box-shadow: none !important;
+    transform: translateY(-1px);
   }
 
   .mobile-link:hover {

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./src/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="/assets/4.png" fetchpriority="high">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root {
             --ait-blue: #0a192f;
@@ -86,12 +88,9 @@
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            background: linear-gradient(to bottom, #f9e498, #d4af37, #7a5a2a);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #d4af37; /* Solid gold for sharpness */
             font-family: 'Cinzel', serif;
-            filter: drop-shadow(0 0 10px rgba(212, 175, 53, 0.3));
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Sharp contrast shadow instead of glow */
         }
 
         @media (min-width: 768px) {
@@ -180,7 +179,7 @@
 
                 <a href="/index.html#faq" class="text-[13px] font-bold uppercase tracking-wider text-mithril hover:text-gold-leaf transition-colors font-serif-title">FAQ</a>
                 <button onclick="window.open('https://linktr.ee/AITMUN2026?utm_source=ig&utm_medium=social&utm_content=link_in_bio', '_blank')" 
-                    class="px-5 py-2 bg-primary text-black rounded font-black text-[12px] uppercase tracking-widest hover:bg-white transition-all shadow-lg shadow-primary/20 font-serif-title">Enlist Now</button>
+                    class="px-5 py-2 bg-primary text-black rounded font-black text-[12px] uppercase tracking-widest hover:bg-white transition-all font-serif-title border border-black/10">Enlist Now</button>
             </div>
             <button class="lg:hidden text-primary" id="mobile-menu-btn">
                 <span class="material-symbols-outlined text-3xl">menu</span>
@@ -281,6 +280,7 @@
     </main>
 
     <footer class="bg-midnight relative pt-32 pb-12 overflow-hidden border-t border-gold-leaf/10" data-purpose="footer">
+        <!-- Decorative Footer Vine Top -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gold-leaf/50 to-transparent"></div>
         <div class="vine-divider w-full max-w-6xl mx-auto absolute top-4 left-1/2 -translate-x-1/2 opacity-30"></div>
         
@@ -293,6 +293,9 @@
                             <h3 class="font-serif-title text-2xl text-gold-leaf tracking-[0.2em]">AIT MUN</h3>
                         </a>
                     </div>
+                    <p class="text-mithril/40 italic text-xl leading-relaxed mb-8 font-serif-body">
+                        "The world is changed. I feel it in the water. I feel it in the earth. I smell it in the air."
+                    </p>
                     <ul class="social-icons-footer">
                         <li>
                             <a href="https://www.linkedin.com/company/aitmun-pune/" target="_blank">
@@ -305,19 +308,29 @@
                             </a>
                         </li>
                     </ul>
+                    
+                    <!-- Small Integrated Map -->
+                    <div class="mt-8 rounded-xl overflow-hidden border border-gold-leaf/10 shadow-[0_0_20px_rgba(212,175,53,0.05)] grayscale hover:grayscale-0 transition-all duration-700 max-w-[240px]">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.2084654924!2d73.87736637501607!3d18.65463698246522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c647cfef48a1%3A0x5c4273336711913!2sArmy%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1711914240000!5m2!1sen!2sin" 
+                            width="100%" height="140" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </div>
+
+                <!-- Quick Links -->
                 <div>
-                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-xs tracking-[0.5em] border-b border-mithril/10 pb-4">Chronicles</h4>
-                    <ul class="space-y-4 text-mithril/40 text-sm font-light">
+                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-base tracking-[0.5em] border-b border-mithril/10 pb-4">Chronicles</h4>
+                    <ul class="space-y-4 text-mithril/40 text-lg font-light">
                         <li><a href="/" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> Home</a></li>
                         <li><a href="/index.html#about" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> Legend</a></li>
                         <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> Councils</a></li>
-                        <li><a href="/secretariat.html" class="hover:text-gold-leaf transition-colors flex items-center gap-2"><span>✧</span> High Table</a></li>
                     </ul>
                 </div>
+
+                <!-- Committees -->
                 <div>
-                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-xs tracking-[0.5em] border-b border-mithril/10 pb-4">The Houses</h4>
-                    <ul class="grid grid-cols-2 gap-x-4 gap-y-4 text-mithril/40 text-[11px] font-light">
+                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-base tracking-[0.5em] border-b border-mithril/10 pb-4">The Houses</h4>
+                    <ul class="grid grid-cols-2 gap-x-4 gap-y-4 text-mithril/40 text-sm font-light">
                         <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">CCC</a></li>
                         <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">UNSC</a></li>
                         <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">UNHRC</a></li>
@@ -326,22 +339,32 @@
                         <li><a href="/committees.html" class="hover:text-gold-leaf transition-colors">IP</a></li>
                     </ul>
                 </div>
+
+                <!-- Contact -->
                 <div>
-                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-xs tracking-[0.5em] border-b border-mithril/10 pb-4">Communication</h4>
-                    <div class="space-y-6 text-mithril/40 text-sm">
+                    <h4 class="font-serif-title text-mithril/80 mb-8 uppercase text-base tracking-[0.5em] border-b border-mithril/10 pb-4">Communication</h4>
+                    <div class="space-y-6 text-mithril/40 text-lg font-serif-body">
                         <a href="mailto:aitpunemun@gmail.com" class="hover:text-gold-leaf transition-colors flex items-center gap-3">
                             <span class="material-symbols-outlined text-sm">mail</span>
                             aitpunemun@gmail.com
                         </a>
-                        <div class="space-y-2 mt-4 text-xs">
-                            <p class="flex items-center gap-3"><span class="material-symbols-outlined text-sm">call</span> Harshika: +91 8954842953</p>
-                            <p class="flex items-center gap-3"><span class="material-symbols-outlined text-sm">call</span> Anhad: +91 9419298707</p>
+                        <div class="space-y-3 mt-4 text-base">
+                            <a href="tel:+918954842953" class="flex items-center gap-3 hover:text-gold-leaf transition-colors"><span class="material-symbols-outlined text-sm">call</span> Harshika: +91 8954842953</a>
+                            <a href="tel:+919419298707" class="flex items-center gap-3 hover:text-gold-leaf transition-colors"><span class="material-symbols-outlined text-sm">call</span> Anhad: +91 9419298707</a>
+                        </div>
+                        <div class="leading-relaxed mt-6">
+                            <p class="text-mithril/60 font-bold mb-1 text-xl">Army Institute of Technology</p>
+                            <p>Dighi Hills, Pune</p>
+                            <p>Maharashtra - 411015</p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            </div>
+
             <div class="relative py-12 border-t border-mithril/10 text-center">
-                <div class="text-mithril/20 text-[10px] tracking-[0.4em] uppercase">
+                <div class="text-mithril/20 text-sm tracking-[0.4em] uppercase">
                     © AIT Model United Nations 2026 ✦ Forged in Diplomacy
                 </div>
             </div>
