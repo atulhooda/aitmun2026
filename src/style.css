@@ -1231,4 +1231,53 @@ footer a, footer p, footer h3, footer h4 {
 footer h3, footer h4 {
   text-shadow: 0 0 15px rgba(212, 175, 53, 0.4);
 }
+
+/* ===== Sponsor Section Styles ===== */
+.sponsor-card {
+    @apply relative p-8 flex flex-col items-center justify-center transition-all duration-700 overflow-hidden;
+    background: rgba(10, 15, 10, 0.4);
+    border: 1px solid rgba(212, 175, 53, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.sponsor-card.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sponsor-card:hover {
+    border-color: rgba(212, 175, 53, 0.6);
+    box-shadow: 0 0 50px rgba(212, 175, 53, 0.3);
+    transform: translateY(-8px) scale(1.05);
+}
+
+.sponsor-emblem {
+    @apply w-32 h-32 mb-6 flex items-center justify-center relative;
+    filter: drop-shadow(0 0 15px rgba(212, 175, 53, 0.3));
+}
+
+.sponsor-name {
+    @apply text-2xl font-bold tracking-[0.2em] uppercase text-gold-bright font-serif-title text-center;
+    text-shadow: 0 0 10px rgba(212, 175, 53, 0.5);
+}
+
+.sponsor-rank {
+    @apply text-xs tracking-[0.4em] uppercase text-mithril/40 mt-2 font-serif-body italic;
+    color: rgba(241, 245, 249, 0.4);
+}
+
+@keyframes pulse-slow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.08); }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+
 
